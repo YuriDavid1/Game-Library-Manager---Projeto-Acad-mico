@@ -1,5 +1,6 @@
-# Game-Library-Manager---Projeto-Acad-mico
+# Game-Library-Manager---Projeto-Academico
 🎮 Game Library Manager – Aplicação Web
+
 📌 Descrição do Projeto
 
 O Game Library Manager é uma aplicação web para gerenciamento de uma biblioteca de jogos físicos, permitindo o cadastro de usuários, jogos e o controle de empréstimos.
