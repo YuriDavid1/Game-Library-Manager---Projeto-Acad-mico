@@ -9,17 +9,22 @@ O sistema foi projetado seguindo uma arquitetura em camadas (Controller, Service
 O objetivo do projeto é aplicar conceitos de:
 
 Front-end / Client-side;
+
 Back-end / Server-side;
+
 REST;
+
 Padrões de Projeto;
+
 Controle de acesso com autenticação;
+
 Testes automatizados;
+
 Deploy e CI/CD;
+
 Observabilidade.
 
-🧱 Arquitetura
-
-🔹 Arquitetura Monolítica em Camadas
+🧱 Arquitetura -🔹 Arquitetura Monolítica em Camadas
 
 O sistema será estruturado em:
 Controller → Service → Repository → Banco de Dados
@@ -31,15 +36,13 @@ Repository → Acesso a dados
 Model/Entity → Representação das entidades do sistema
 
 
-🧩 Funcionalidades
-🔹 CRUD Principal
+🧩 Funcionalidades - 🔹 CRUD Principal
 
 CRUD completo de Jogos:
 Criar jogo
 Listar jogos
 Atualizar jogo
 Remover jogo
-
 
 🔐 Controle de Acesso
 
