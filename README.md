@@ -1,7 +1,7 @@
 # Game-Library-Manager---Projeto-Academico
 🎮 Game Library Manager – Aplicação Web
 
-📌 Descrição do Projeto
+Descrição do Projeto
 
 O Game Library Manager é uma aplicação web para gerenciamento de uma biblioteca de jogos físicos, permitindo o cadastro de usuários, jogos e o controle de empréstimos.
 
@@ -25,7 +25,7 @@ Deploy e CI/CD;
 
 Observabilidade.
 
-🧱 Arquitetura -🔹 Arquitetura Monolítica em Camadas
+Arquitetura - Monolítica em Camadas
 
 O sistema será estruturado em:
 Controller → Service → Repository → Banco de Dados
@@ -37,7 +37,7 @@ Repository → Acesso a dados
 Model/Entity → Representação das entidades do sistema
 
 
-🧩 Funcionalidades - 🔹 CRUD Principal
+Funcionalidades - CRUD Principal
 
 CRUD completo de Jogos:
 Criar jogo
@@ -53,7 +53,7 @@ Geração de token JWT
 Proteção de rotas autenticadas
 Controle de acesso baseado em token
 
-🌐 Front-end
+Front-end
 Interface simples para:
 Cadastro de jogos
 Cadastro de usuários
@@ -64,18 +64,18 @@ Tecnologias possíveis:
 HTML + CSS + JavaScript
 Comunicação via API REST.
 
-🗄 Banco de Dados
+Banco de Dados
 Inicialmente:
 H2 (ambiente de desenvolvimento)
 Possível produção:
 PostgreSQL
 
-🧪 Testes
+Testes
 Testes unitários na camada Service
 Validação de regras de negócio
 Testes de endpoints principais
 
-🔁 CI/CD
+CI/CD
 
 Repositório GitHub
 Pipeline automático para:
@@ -83,12 +83,12 @@ Build
 Testes
 Deploy
 
-📊 Observabilidade
+Observabilidade
 Logs estruturados
 Monitoramento básico de erros
 Possível integração futura com ferramenta de monitoramento
 
-📎 Repositório
+Repositório
 Código-fonte, documentação e wiki estarão disponíveis no GitHub.
 
 🎯 Conclusão
