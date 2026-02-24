@@ -18,6 +18,7 @@ Deploy e CI/CD;
 Observabilidade.
 
 🧱 Arquitetura
+
 🔹 Arquitetura Monolítica em Camadas
 
 O sistema será estruturado em:
