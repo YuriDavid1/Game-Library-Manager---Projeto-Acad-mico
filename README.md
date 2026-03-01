@@ -45,7 +45,7 @@ Listar jogos
 Atualizar jogo
 Remover jogo
 
-🔐 Controle de Acesso
+Controle de Acesso
 
 O sistema contará com:
 Endpoint de login
@@ -91,5 +91,5 @@ Possível integração futura com ferramenta de monitoramento
 Repositório
 Código-fonte, documentação e wiki estarão disponíveis no GitHub.
 
-🎯 Conclusão
+Conclusão
 O projeto busca integrar conceitos teóricos e práticos da disciplina de Programação Web, aplicando padrões de projeto, arquitetura organizada e boas práticas de desenvolvimento, resultando em uma aplicação funcional, testável e implantada em produção.
