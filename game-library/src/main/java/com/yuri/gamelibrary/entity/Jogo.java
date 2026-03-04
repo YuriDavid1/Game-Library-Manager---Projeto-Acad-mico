@@ -2,13 +2,15 @@ package com.yuri.gamelibrary.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Jogo {
 
     @Id
-    @GeneratedValue private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String genero;
     private boolean disponivel;
