@@ -7,5 +7,4 @@ public interface JogoRepository extends JpaRepository<Jogo, Long> {
 
     Optional<Jogo> findByNomeIgnoreCase(String nome);
 
-    String nome(String nome);
 }
