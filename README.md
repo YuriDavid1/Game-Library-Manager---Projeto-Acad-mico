@@ -169,7 +169,7 @@ flowchart LR
 
 User[Usuário / Administrador]
 
-System[Game Library Manager\nSistema de gerenciamento de jogos]
+System[Game Library Manager / Sistema de gerenciamento de jogos]
 
 Database[(Banco de Dados)]
 
@@ -189,9 +189,9 @@ flowchart LR
 
 User[Usuário]
 
-Frontend[Front-end Web\nInterface do usuário]
+Frontend[Front-end Web /Interface do usuário]
 
-Backend[API Spring Boot\nRegras de negócio]
+Backend[API Spring Boot / Regras de negócio]
 
 Database[(Banco de Dados)]
 
@@ -229,13 +229,13 @@ Mostra a estrutura interna da API.
 ```mermaid
 flowchart TB
 
-Controller[Controllers\nAPI REST]
+Controller[Controllers / API REST]
 
-Service[Services\nRegras de negócio]
+Service[Services / Regras de negócio]
 
-Repository[Repositories\nPersistência de dados]
+Repository[Repositories / Persistência de dados]
 
-Entity[Entities\nModelos do sistema]
+Entity[Entities / Modelos do sistema]
 
 Controller --> Service
 Service --> Repository
