@@ -129,7 +129,96 @@ O sistema foi estruturado utilizando arquitetura em camadas, separando responsab
 * Repository - acesso a dados;
 
 * Entity - representação das tabelas do banco
- 
+
+
+### Requisitos do Sistema
+Requisitos Funcionais
+
+Os requisitos funcionais descrevem as funcionalidades que o sistema deve oferecer.
+
+#### RF01 — Cadastro de usuários
+
+* O sistema deve permitir o cadastro de usuários que poderão realizar empréstimos de jogos.
+
+#### RF02 — Cadastro de jogos
+
+* O sistema deve permitir o cadastro de jogos na biblioteca.
+
+Cada jogo deve possuir ao menos:
+
+* nome
+
+* gênero
+
+* status de disponibilidade
+
+#### RF03 — Consulta de usuários
+
+* O sistema deve permitir consultar os usuários cadastrados.
+
+#### RF04 — Consulta de jogos
+
+* O sistema deve permitir consultar os jogos cadastrados na biblioteca.
+
+#### RF05 — Registro de empréstimo
+
+* O sistema deve permitir registrar o empréstimo de um jogo para um usuário.
+
+#### Regras:
+
+* o usuário deve existir
+
+* o jogo deve existir
+
+* o jogo deve estar disponível
+
+#### RF06 — Registro de devolução
+
+* O sistema deve permitir registrar a devolução de um jogo.
+Ao registrar a devolução:
+* o empréstimo é finalizado
+* o jogo volta a ficar disponível
+
+#### RF07 — Controle de disponibilidade
+
+* O sistema deve controlar automaticamente a disponibilidade dos jogos.
+* jogos emprestados ficam indisponíveis
+* após devolução ficam disponíveis novamente
+
+### Requisitos Não Funcionais
+
+Os requisitos não funcionais descrevem características de qualidade do sistema.
+
+#### RNF01 — Arquitetura em camadas
+
+O sistema deve utilizar arquitetura em camadas separando:
+
+* Controller
+* Service
+* Repository
+* Model
+
+#### RNF02 — Persistência de dados
+
+* Os dados devem ser persistidos utilizando banco de dados relacional através do Spring Data JPA.
+
+#### RNF03 — Organização do código
+
+* O código deve seguir boas práticas de organização e separação de responsabilidades.
+
+#### RNF04 — Controle de versão
+
+* O projeto deve utilizar Git para controle de versão e hospedagem no GitHub.
+
+#### RNF05 — Escalabilidade
+
+* A arquitetura do sistema deve permitir a futura implementação de:
+
+* autenticação de usuários
+
+* interface web
+
+* testes automatizados
  
 ### Ajuste de Requisitos
 
