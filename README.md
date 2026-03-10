@@ -347,5 +347,8 @@ Responsáveis pelo acesso ao banco de dados utilizando Spring Data JPA.
 
 Representam as tabelas do banco e os modelos do domínio.
 
+### Figma:
+* https://www.figma.com/design/suO1FpLmPP80FqrqljXjy7/Locadora-de-jogos?node-id=0-1&m=dev&t=RgO8oIJZlXgeKHd8-1
+
 Conclusão
 O projeto busca integrar conceitos teóricos e práticos da disciplina de Programação Web, aplicando padrões de projeto, arquitetura organizada e boas práticas de desenvolvimento, resultando em uma aplicação funcional, testável e implantada em produção.
