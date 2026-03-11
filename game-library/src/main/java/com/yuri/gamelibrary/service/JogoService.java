@@ -34,7 +34,6 @@ public class JogoService {
         if (jogoEncontrado.isEmpty()) {
             throw new IllegalArgumentException("Nome do jogo não encontrado");
         }
-
         repository.delete(jogoEncontrado.get());
     }
 

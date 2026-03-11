@@ -1,10 +1,12 @@
 package com.yuri.gamelibrary.service;
 import com.yuri.gamelibrary.entity.Usuario;
 import com.yuri.gamelibrary.repository.UsuarioRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
