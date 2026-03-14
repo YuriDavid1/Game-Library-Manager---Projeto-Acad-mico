@@ -1,5 +1,5 @@
 # Game-Library-Manager---Projeto-Academico
-🎮 Game Library Manager – Aplicação Web
+Game Library Manager – Aplicação Web
 
 Descrição do Projeto
 
