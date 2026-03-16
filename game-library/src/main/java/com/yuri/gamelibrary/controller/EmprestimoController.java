@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 @RestController
-@RequestMapping
+@RequestMapping("/emprestimo")
 public class EmprestimoController {
 
     private final EmprestimoService emprestimoService;
@@ -29,18 +27,14 @@ public class EmprestimoController {
         return emprestimoService.listarTodos();
     }
 
-    @GetMapping
+    @GetMapping("/ativos")
     public List<Emprestimo> listarAtivos(){
         return emprestimoService.listarAtivos();
     }
 
-    @DeleteMapping("/by-name/{nome}")
-    public String finalizarEmprestimo(@PathVariable Long idEmprestimo){
-    emprestimoService.finalizarEmprestimo(idEmprestimo);
+    @PatchMapping("/{id}/finalizar")
+    public String finalizarEmprestimo(@PathVariable Long id){
+    emprestimoService.finalizarEmprestimo(id);
     return "Emprestimo finalizado.";
-}
-
-
-
-
+    }
 }

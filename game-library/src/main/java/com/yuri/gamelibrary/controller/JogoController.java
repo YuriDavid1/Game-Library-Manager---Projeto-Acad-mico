@@ -28,7 +28,7 @@ public class JogoController {
         return jogoService.listarTodos();
     }
 
-    @GetMapping("/by-name/{nome}")
+    @GetMapping("/buscar/{nome}")
     public Jogo buscarJogo(@PathVariable String nome) {
         return jogoService.buscarJogo(nome);
     }

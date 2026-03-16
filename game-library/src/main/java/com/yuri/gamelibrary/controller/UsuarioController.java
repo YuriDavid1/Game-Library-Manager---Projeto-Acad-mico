@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/users")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
-
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
@@ -28,7 +27,7 @@ public class UsuarioController {
         return usuarioService.listarTodos();
     }
 
-    @GetMapping("/by-name/{nome}")
+    @GetMapping("/buscar/{nome}")
     public Usuario buscarUsuari(@PathVariable String nome){
         return usuarioService.buscarUsuario(nome);
     }
