@@ -1,5 +1,6 @@
 package com.yuri.gamelibrary.controller;
 
+import com.yuri.gamelibrary.dto.EmprestimoRequest;
 import com.yuri.gamelibrary.entity.Emprestimo;
 import com.yuri.gamelibrary.service.EmprestimoService;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,8 @@ public class EmprestimoController {
     }
 
     @PostMapping
-    public String criarEmprestimo(@RequestBody Emprestimo emprestimo){
-        emprestimoService.criarEmprestimo(emprestimo.getUsuario().getNome(), emprestimo.getJogo().getNome());
+    public String criarEmprestimo(@RequestBody EmprestimoRequest request){
+        emprestimoService.criarEmprestimo(request.getNomeUsuario(), request.getNomeJogo());
         return "Emprestimo realizado";
     }
 
