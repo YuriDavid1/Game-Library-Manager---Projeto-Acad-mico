@@ -42,7 +42,7 @@ nav {
     height: 500px;
     background: url("https://raw.githubusercontent.com/YuriDavid1/Game-Library-Manager---Projeto-Acad-mico/main/img/header.png");
     background-repeat: no-repeat;
-    background-position: center 30%;
+    background-position: top center;
     background-size: cover;
     border-radius: 12px;
     overflow: hidden;
