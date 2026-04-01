@@ -1,11 +1,12 @@
 * {
     margin: 0;
-    padding: 0;
     font-family: "poppins", sans-serif;
     font-weight: 600;
     font-style:normal;
 }
-
+body{
+    background-color: #11141D;
+}
 a {
     font-size: 18px;
     color: #fff;
@@ -87,4 +88,50 @@ nav {
     font-size: 25px;
     color: white;
     cursor: pointer;
+}
+.tituloC{
+    color: white;
+    padding-left: 70px;
+    font-size: 25px;
+}
+
+.subtitulo {
+    color: white;
+    padding-left: 70px;
+    font-size: 20px;
+    font-style:oblique;
+}
+
+#carrossel{
+    color: #fff;
+    padding-left: 48px;
+    display: grid;
+    grid-template-columns: 465px 465px 465px;
+}
+
+.b1 {
+    margin: 25px;
+    height: 210px;
+    position: relative;
+}
+
+.b1 img{
+width: 100%;
+    height: 100%;
+    object-fit: cover;
+        display: block;
+
+}
+
+  .titulo-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    color: white;
+    padding: 10px;
+
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    
 }
