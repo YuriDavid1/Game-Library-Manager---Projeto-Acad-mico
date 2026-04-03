@@ -4,9 +4,11 @@
     font-weight: 600;
     font-style:normal;
 }
+
 body{
     background-color: #11141D;
 }
+
 a {
     font-size: 18px;
     color: #fff;
@@ -51,7 +53,7 @@ nav {
 .banner {
     width: 100%;
     height: 500px;
-    background: url("https://raw.githubusercontent.com/YuriDavid1/Game-Library-Manager---Projeto-Acad-mico/main/img/header.png");
+    background: url("../images/header.png");
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
