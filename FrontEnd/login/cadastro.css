@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "poppins", sans-serif;
     font-weight: 600;
     font-style:normal;
@@ -55,3 +57,12 @@ nav {
     margin-left: 32px;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registro a{
+    color: #FDCA44;
+}
