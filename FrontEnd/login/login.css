@@ -7,13 +7,21 @@
     font-style:normal;
 }
 
-body{
-    margin: 0;
-    height: 100vh;
-    background: url('../images/Form.png') no-repeat;
+.bg {
+    height: calc(100vh - 8vh);
+    background: url('../images/Form1.png') no-repeat;
     background-size: cover;
     background-position: top center;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{    
+    align-items: center;
+    text-align: center;
+    margin: 0;
 }
 
 a {
@@ -58,9 +66,19 @@ nav {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #fff;
+    width: 520px;
+    height: 620px;
+    background-color: #11141D;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container h1{
+    font-size: 3 6px;
+    text-align: center;
 }
 
 .registro a{
