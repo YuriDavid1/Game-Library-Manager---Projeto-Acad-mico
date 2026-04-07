@@ -11,8 +11,7 @@
     height: calc(100vh - 8vh);
     background: url('../images/Form1.png') no-repeat;
     background-size: cover;
-    background-position: top center;
-
+    background-position: 60% 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,10 +111,31 @@ nav {
     font-size: 20px;
 }
 
+.registro{
+    color: #fff;
+    margin-top: 10px;
+}
+
 .registro a{
     color: #FDCA44;
+    margin-top: 10px;
 }
 
 .senha a{
+    display: flex;
     color: #209fdf;
+    justify-content: right;
+    margin-top: -25px;
+    margin-bottom: 30px;
 }
+
+.logButton {
+    position: relative;
+    width: 73%;
+    height: 50px;
+    color: #fff;
+    font-size: 28px;
+    background-color: #5D9853;
+    border-radius: 5px;
+}
+
