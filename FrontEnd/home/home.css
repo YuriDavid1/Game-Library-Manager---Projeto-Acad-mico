@@ -92,6 +92,7 @@ nav {
     cursor: pointer;
 }
 .tituloC{
+    margin-top: 10px;
     color: white;
     padding-left: 70px;
     font-size: 25px;
@@ -111,13 +112,13 @@ nav {
     grid-template-columns: 465px 465px 465px;
 }
 
-.b1 {
+.g1 {
     margin: 25px;
     height: 210px;
     position: relative;
 }
 
-.b1 img{
+.g1 img{
 width: 100%;
     height: 100%;
     object-fit: cover;
@@ -125,15 +126,38 @@ width: 100%;
 
 }
 
-  .titulo-card {
+.g2 {
+    margin: 25px;
+    height: 210px;
+    position: relative;
+}
+
+.g2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.g3 {
+    margin: 25px;
+    height: 210px;
+    position: relative;
+}
+
+.g3 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+  .legenda {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0px;
+    left: 0px;
     width: 100%;
 
     color: white;
-    padding: 10px;
-
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    
+    padding: 10px;   
 }
