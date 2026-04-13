@@ -88,6 +88,7 @@ Logs estruturados
 Monitoramento básico de erros
 Possível integração futura com ferramenta de monitoramento
 
+Diagrama de Classe:
 
 -----------------------------------------------------------
 # Interação 2 - Resultado da Implementação Inicial
