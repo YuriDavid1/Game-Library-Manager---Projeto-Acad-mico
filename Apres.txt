@@ -1,0 +1,37 @@
+http://localhost:8080/h2-console
+
+----------------------------------
+
+POSTMAN
+
+http://localhost:8080/users POST/GET
+
+{
+  "nome": "Yuri"
+}
+
+http://localhost:8080/users/buscar/Yuri GET
+
+--------------------------------------------------------------------------------------------------------------------
+Games
+
+http://localhost:8080/games POST/GET
+
+{
+  "nome": "God of war",
+  "genero": "Ação"
+}
+
+http://localhost:8080/games/buscar/God%20of%20War GET
+http://localhost:8080/games/by-name/God%20of%20War DELETE
+
+--------------------------------------------------------------------------------------------------------------------
+Emprestimo
+
+http://localhost:8080/emprestimo POST/GET
+http://localhost:8080/emprestimo/1/finalizar PATCH
+
+{
+  "nomeUsuario": "Yuri",
+  "nomeJogo": "God of War"
+}
