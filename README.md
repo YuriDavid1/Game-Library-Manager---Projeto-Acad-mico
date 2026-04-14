@@ -1,136 +1,11 @@
-# Game-Library Projeto-Academico
-Game Library Manager – Aplicação Web
-
+# Game-Library 
+Projeto-Academico
+-----------------------------------------------------------
 Descrição do Projeto
 
 O Game Library Manager é uma aplicação web para gerenciamento de uma biblioteca de jogos físicos, permitindo o cadastro de usuários, jogos e o controle de empréstimos.
 
-O sistema foi projetado seguindo uma arquitetura em camadas (Controller, Service, Repository, Model), utilizando princípios REST, separação de responsabilidades e boas práticas de desenvolvimento backend e frontend.
-
-O objetivo do projeto é aplicar conceitos de:
-
-Front-end / Client-side;
-
-Back-end / Server-side;
-
-REST;
-
-Padrões de Projeto;
-
-Controle de acesso com autenticação;
-
-Testes automatizados;
-
-Deploy e CI/CD;
-
-Observabilidade.
-
-Arquitetura - Monolítica em Camadas
-
-O sistema será estruturado em:
-Controller → Service → Repository → Banco de Dados
-
-Camadas:
-Controller → Exposição de endpoints REST
-Service → Regras de negócio
-Repository → Acesso a dados
-Model/Entity → Representação das entidades do sistema
-
-
-Funcionalidades - CRUD Principal
-
-CRUD completo de Jogos:
-Criar jogo
-Listar jogos
-Atualizar jogo
-Remover jogo
-
-Controle de Acesso
-
-O sistema contará com:
-Endpoint de login
-Geração de token JWT
-Proteção de rotas autenticadas
-Controle de acesso baseado em token
-
-Front-end
-Interface simples para:
-Cadastro de jogos
-Cadastro de usuários
-Realização de empréstimos
-Listagem de histórico
-
-Tecnologias possíveis:
-HTML + CSS + JavaScript
-Comunicação via API REST.
-
-Banco de Dados
-Inicialmente:
-H2 (ambiente de desenvolvimento)
-Possível produção:
-PostgreSQL
-
-Testes
-Testes unitários na camada Service
-Validação de regras de negócio
-Testes de endpoints principais
-
-CI/CD
-
-Repositório GitHub
-Pipeline automático para:
-Build
-Testes
-Deploy
-
-Observabilidade
-Logs estruturados
-Monitoramento básico de erros
-Possível integração futura com ferramenta de monitoramento
-
-Diagrama de Classe:
-
------------------------------------------------------------
-# Interação 2 - Resultado da Implementação Inicial
-Na Interação 1 foi definido o escopo do projeto e a estratégia inicial de desenvolvimento.
-
-Foi decidido iniciar a implementação pelo Back-end, com foco na modelagem do domínio, estrutura de persistência e implementação das regras de negócio.
-
-Nesta Interação 2, o repositório já contém a implementação inicial da camada de domínio e da lógica de negócio do sistema.
-
-### Artefatos implementados no repositório:
-
-#### A estrutura atual do projeto contém:
-* Modelagem do domínio
-* Usuario
-* Jogo
-* Emprestimo
-
-#### Persistência de dados: 
-* UsuarioRepository
-* JogoRepository
-* EmprestimoRepository
-
-#### Regras de negócio: 
-* UsuarioService 
-* JogoService
-* EmprestimoService
- 
- 
-### Arquitetura do Sistema
-
-O sistema foi estruturado utilizando arquitetura em camadas, separando responsabilidades entre os componentes da aplicação. 
-
-### Camadas da aplicação:
-
-* Controller - interface da API;
-
-* Service - regras de negócio;
-
-* Repository - acesso a dados;
-
-* Entity - representação das tabelas do banco
-
+O sistema foi projetado seguindo uma arquitetura em camadas (Modelo MVC), utilizando princípios REST, separação de responsabilidades e boas práticas de desenvolvimento backend e frontend.
 
 ### Requisitos do Sistema
 Requisitos Funcionais
@@ -242,6 +117,112 @@ Regras definidas
 * O empréstimo é finalizado
 
 * O jogo volta a ficar disponível
+
+###Fluxo do Sistema
+
+Administrador realiza login
+Administrador cadastra novos jogos
+Usuário realiza cadastro
+Usuário faz login
+Sistema redireciona para o painel principal
+Usuário visualiza os jogos disponíveis
+Usuário seleciona um jogo
+Usuário solicita o aluguel por um período de tempo
+Sistema verifica a disponibilidade do jogo
+Sistema registra o empréstimo
+Sistema marca o jogo como indisponível
+Usuário pode visualizar seus jogos alugados
+Usuário devolve o jogo
+Sistema finaliza o empréstimo
+Sistema marca o jogo como disponível novamente
+-----------------------------------------------------------
+
+###Tecnologias
+
+#### Back-end: Java com Spring Boot (Framework)
+
+O Spring Boot facilita a criação de APIs REST de forma organizada;
+Permite separar o projeto em camadas (Controller, Service e Repository);
+Possui integração simples com JPA/Hibernate para persistência de dados;
+Oferece suporte nativo à autenticação com JWT;
+Reduz configuração inicial e acelera o desenvolvimento;
+Amplamente utilizado no mercado corporativo Java;
+Adequado para projetos acadêmicos por sua organização e boas práticas.
+-----------------------------------------------------------
+#### Front-end: HTML + CSS + JavaScript com React (Framework)
+
+Permite criação de interface web interativa e dinâmica;
+Componentização facilita reutilização de código;
+Separação clara entre interface e regras do sistema;
+Integração simples com API REST do backend;
+Facilita criação de telas como login, listagem e empréstimos;
+Amplamente utilizado no mercado de desenvolvimento web;
+Adequado para aplicações SPA (Single Page Application).
+-----------------------------------------------------------
+#### Banco de Dados : H2 (Desenvolvimento) e PostgreSQL (Produção)
+
+H2 permite execução em memória sem necessidade de instalação;
+Facilita testes e desenvolvimento rápido;
+Integração nativa com Spring Boot;
+PostgreSQL é um banco relacional robusto e confiável;
+Suporte a relacionamentos entre entidades (usuário, jogos e empréstimos);
+Permite uso de chaves primárias e estrangeiras garantindo integridade dos dados;
+Amplamente utilizado em ambientes profissionais e acadêmicos.
+-----------------------------------------------------------
+#### Testes:
+
+Testes unitários na camada Service para validação das regras de negócio;
+Garantem funcionamento correto do fluxo de empréstimos e devoluções;
+Permitem validar disponibilidade dos jogos;
+Facilitam manutenção e refatoração do código;
+Testes dos principais endpoints da API REST;
+Auxiliam na prevenção de regressões durante evolução do sistema.
+-----------------------------------------------------------
+#### CI/CD:
+
+Repositório hospedado no GitHub para versionamento do código;
+Pipeline automático para build da aplicação;
+Execução automática dos testes unitários;
+Validação do projeto a cada commit ou pull request;
+Possibilidade de deploy automatizado;
+Garante maior confiabilidade e qualidade do sistema.
+-----------------------------------------------------------
+#### O sistema contará com: 
+
+Endpoint de autenticação para login de usuários;
+Geração de token JWT para controle de sessão;
+Proteção de rotas que exigem autenticação;
+Controle de acesso baseado em token;
+Separação de permissões entre administrador e usuário;
+Validação de requisições autenticadas.
+-----------------------------------------------------------
+#### Observabilidade:
+
+Logs estruturados para acompanhamento da aplicação;
+Registro de erros e exceções do sistema;
+Monitoramento básico das operações da API;
+Facilita identificação de falhas durante execução;
+Possibilidade de integração futura com ferramentas de monitoramento;
+Auxilia na manutenção e evolução do sistema.
+
+-----------------------------------------------------------
+ 
+### Arquitetura do Sistema
+
+O sistema foi estruturado utilizando arquitetura em camadas, separando responsabilidades entre os componentes da aplicação. 
+
+### Camadas da aplicação:
+
+* Controller - interface da API;
+
+* Service - regras de negócio;
+
+* Repository - acesso a dados;
+
+* Entity - representação das tabelas do banco
+
+
+
 
 
 ### Arquitetura - Modelo C4
