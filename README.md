@@ -1,5 +1,5 @@
 # Game-Library — Projeto-Academico
------------------------------------------------------------
+
 # Descrição do Projeto
 
 O Game Library Manager é um sistema web desenvolvido para o gerenciamento de uma locadora de jogos. A aplicação permite o cadastro e autenticação de usuários, visualização dos jogos disponíveis e solicitação de empréstimos por um período determinado. O administrador é responsável pelo cadastro de novos jogos, enquanto o sistema realiza o controle automático da disponibilidade e do histórico das locações.
@@ -72,7 +72,6 @@ Regras: o usuário deve existir, o jogo deve existir e o jogo deve estar dispon�
 
 * RF28 — O sistema deve manter o histórico de empréstimos mesmo após devolução.
 
------------------------------------------------------------
 # Requisitos Não Funcionais
 
 Os requisitos não funcionais descrevem características de qualidade do sistema.
@@ -126,8 +125,7 @@ Os requisitos não funcionais descrevem características de qualidade do sistema
 * RNF24 — O sistema deve permitir futura integração com interface web React.
 
 * RNF25 — O sistema deve permitir expansão futura da arquitetura.
-* 
------------------------------------------------------------
+
 # Fluxo do Sistema
 
 1. Administrador realiza login
@@ -160,8 +158,6 @@ Os requisitos não funcionais descrevem características de qualidade do sistema
     
 15. Sistema marca o jogo como disponível novamente
 
------------------------------------------------------------
-
 #Tecnologias
 
 # Back-end: Java com Spring Boot (Framework)
@@ -180,7 +176,6 @@ Amplamente utilizado no mercado corporativo Java;
 
 Adequado para projetos acadêmicos por sua organização e boas práticas.
 
------------------------------------------------------------
 # Front-end: HTML + CSS + JavaScript com React (Framework)
 
 Permite criação de interface web interativa e dinâmica;
@@ -197,7 +192,6 @@ Amplamente utilizado no mercado de desenvolvimento web;
 
 Adequado para aplicações SPA (Single Page Application).
 
------------------------------------------------------------
 # Banco de Dados : H2 (Desenvolvimento) e PostgreSQL (Produção)
 
 H2 permite execução em memória sem necessidade de instalação;
@@ -214,7 +208,6 @@ Permite uso de chaves primárias e estrangeiras garantindo integridade dos dados
 
 Amplamente utilizado em ambientes profissionais e acadêmicos.
 
------------------------------------------------------------
 # Testes:
 
 Testes unitários na camada Service para validação das regras de negócio;
@@ -229,7 +222,6 @@ Testes dos principais endpoints da API REST;
 
 Auxiliam na prevenção de regressões durante evolução do sistema.
 
------------------------------------------------------------
 # CI/CD:
 
 Repositório hospedado no GitHub para versionamento do código;
@@ -244,7 +236,6 @@ Possibilidade de deploy automatizado;
 
 Garante maior confiabilidade e qualidade do sistema.
 
------------------------------------------------------------
 # O sistema contará com: 
 
 Endpoint de autenticação para login de usuários;
@@ -259,7 +250,6 @@ Separação de permissões entre administrador e usuário;
 
 Validação de requisições autenticadas.
 
------------------------------------------------------------
 # Observabilidade:
 
 Logs estruturados para acompanhamento da aplicação;
@@ -274,7 +264,16 @@ Possibilidade de integração futura com ferramentas de monitoramento;
 
 Auxilia na manutenção e evolução do sistema.
 
------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
  
 # Arquitetura do Sistema
 
