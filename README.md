@@ -120,21 +120,35 @@ Regras definidas
 
 ###Fluxo do Sistema
 
-Administrador realiza login
-Administrador cadastra novos jogos
-Usuário realiza cadastro
-Usuário faz login
-Sistema redireciona para o painel principal
-Usuário visualiza os jogos disponíveis
-Usuário seleciona um jogo
-Usuário solicita o aluguel por um período de tempo
-Sistema verifica a disponibilidade do jogo
-Sistema registra o empréstimo
-Sistema marca o jogo como indisponível
-Usuário pode visualizar seus jogos alugados
-Usuário devolve o jogo
-Sistema finaliza o empréstimo
-Sistema marca o jogo como disponível novamente
+1. Administrador realiza login
+
+2. Administrador cadastra novos jogos
+
+3. Usuário realiza cadastro
+
+4. Usuário faz login
+   
+5. Sistema redireciona para o painel principal
+   
+6. Usuário visualiza os jogos disponíveis
+   
+7. Usuário seleciona um jogo
+    
+8. Usuário solicita o aluguel por um período de tempo
+    
+9. Sistema verifica a disponibilidade do jogo
+    
+10. Sistema registra o empréstimo
+    
+11. Sistema marca o jogo como indisponível
+    
+12. Usuário pode visualizar seus jogos alugados
+    
+13. Usuário devolve o jogo
+    
+14. Sistema finaliza o empréstimo
+    
+15. Sistema marca o jogo como disponível novamente
 -----------------------------------------------------------
 
 ###Tecnologias
