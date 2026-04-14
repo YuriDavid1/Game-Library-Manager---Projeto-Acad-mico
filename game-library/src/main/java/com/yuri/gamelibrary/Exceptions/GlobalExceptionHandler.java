@@ -20,7 +20,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(erro);
     }
 
-    @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> tratarExceptionGenerica(Exception ex) {
 
         Map<String, Object> erro = new HashMap<>();

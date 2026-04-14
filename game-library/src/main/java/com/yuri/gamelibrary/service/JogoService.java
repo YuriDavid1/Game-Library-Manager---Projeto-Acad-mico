@@ -26,6 +26,7 @@ public class JogoService {
         if (jogoExiste.isPresent()) {
             throw new IllegalArgumentException("Jogo já registrado com este nome.");
         }
+        jogo.setDisponivel(true);
         repository.save(jogo);
     }
 
