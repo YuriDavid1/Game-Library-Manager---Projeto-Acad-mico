@@ -202,7 +202,7 @@ Permite uso de chaves primárias e estrangeiras garantindo integridade dos dados
 
 Amplamente utilizado em ambientes profissionais e acadêmicos.
 
-# Testes:
+# Testes
 
 Testes unitários na camada Service para validação das regras de negócio;
 
@@ -216,7 +216,7 @@ Testes dos principais endpoints da API REST;
 
 Auxiliam na prevenção de regressões durante evolução do sistema.
 
-# CI/CD:
+# CI/CD
 
 Repositório hospedado no GitHub para versionamento do código;
 
@@ -230,7 +230,7 @@ Possibilidade de deploy automatizado;
 
 Garante maior confiabilidade e qualidade do sistema.
 
-# O sistema contará com: 
+# O sistema contará com 
 
 Endpoint de autenticação para login de usuários;
 
@@ -244,7 +244,7 @@ Separação de permissões entre administrador e usuário;
 
 Validação de requisições autenticadas.
 
-# Observabilidade:
+# Observabilidade
 
 Logs estruturados para acompanhamento da aplicação;
 
@@ -266,226 +266,90 @@ Os níveis utilizados foram:
 * Contêineres
 * Componentes
 
-#### Nível 1 - Diagrama de Contexto
+# Nível 1 - Contexto
 
 Mostra o sistema como um todo e sua interação com os usuários.
+<div align="center">
+<img width="500" height="1100" alt="Diagrama de Contexto" src="https://github.com/user-attachments/assets/2f42e273-153e-4469-8967-dc173ee6be94" />
+</div>
 
-# Classe
-```mermaid
----
-config:
-  layout: elk
----
-classDiagram
+# Nível 2 - Contêineres
+<div align="center">
+<img width="400" height="900" alt="Diagrama de a" src="https://github.com/user-attachments/assets/00828c77-82e1-4ab5-8b10-045ab98fa46f" />
+</div>
 
-%% Entidades e DTO
-class Usuario {
-    -Long id
-    -String nome
-    +getId() Long
-    +getNome() String
-}
+# Nível 3 - Componentes
+<img width="1500" height="1300" alt="Diagrama de componentes" src="https://github.com/user-attachments/assets/d14ec6cb-ecb5-42ba-ab9d-95e817b3d3cf" />
 
-class Jogo {
-    -Long id
-    -String nome
-    -String genero
-    -boolean disponivel
-    +getId() Long
-    +getNome() String
-    +getGenero() String
-    +isDisponivel() boolean
-    +setDisponivel(boolean) void
-}
+# Diagrama de Classe
+<img width="8192" height="6104" alt="Usuario and Jogo Management-2026-04-14-131151" src="https://github.com/user-attachments/assets/3e5af798-c8c3-4ca3-9bb4-0f7d36f260e8" />
 
-class Emprestimo {
-    -Long id
-    -boolean ativo
-    +getJogo() Jogo
-    +getUsuario() Usuario
-    +isAtivo() boolean
-    +setAtivo(boolean) void
-}
+# Diagrama de Sequência
+<img width="7085" height="5565" alt="Diagrama de sequencia" src="https://github.com/user-attachments/assets/0d6ca4fd-5dfe-47f1-b2db-52b1d8d705c1" />
 
-class EmprestimoRequest {
-    -String nomeUsuario
-    -String nomeJogo
-    +getNomeUsuario() String
-    +getNomeJogo() String
-}
+# Caso de Uso
 
-%% Relacionamentos entre Entidades
-Emprestimo "*" --> "1" Usuario : pertence a
-Emprestimo "*" --> "1" Jogo : contém
+### Usuario 
+<img width="591" height="421" alt="Caso de Uso drawio" src="https://github.com/user-attachments/assets/c28fe388-8fbe-4ed1-b7be-c3a4e73273df" />
 
-%% Repositórios (Com os métodos de query personalizados)
-class UsuarioRepository {
-    <<interface>>
-    +findByNomeIgnoreCase(String nome) Optional~Usuario~
-}
-class JogoRepository {
-    <<interface>>
-    +findByNomeIgnoreCase(String nome) Optional~Jogo~
-}
-class EmprestimoRepository {
-    <<interface>>
-    +findByAtivoTrue() List~Emprestimo~
-    +existsByJogoIdAndAtivoTrue(long jogoId) boolean
-}
+### Administrador 
+<img width="493" height="342" alt="Caso de UsoADM drawio" src="https://github.com/user-attachments/assets/5482b150-2151-458f-9b12-28730bafeb75" />
 
-%% Camada de Serviços (Regras de negócio)
-class UsuarioService {
-    +cadastrarUsuario(Usuario) void
-    +buscarUsuario(String nome) Usuario
-    +listarTodos() List~Usuario~
-}
-class JogoService {
-    +cadastrarJogo(Jogo) void
-    +deletarJogo(String nome) void
-    +buscarJogo(String nome) Jogo
-    +listarTodos() List~Jogo~
-}
-class EmprestimoService {
-    +criarEmprestimo(String nomeUsuario, String nomeJogo) Emprestimo
-    +finalizarEmprestimo(Long idEmprestimo) void
-    +listarAtivos() List~Emprestimo~
-    +listarTodos() List~Emprestimo~
-}
+# Estrutura do Banco
 
-%% Dependências de Serviço -> Repositório
-UsuarioService ..> UsuarioRepository : usa
-JogoService ..> JogoRepository : usa
+Tabelas do banco: 
 
-EmprestimoService ..> EmprestimoRepository : usa
-EmprestimoService ..> UsuarioRepository : usa
-EmprestimoService ..> JogoRepository : usa
+# Usuario
+Armazena os dados dos usuários do sistema:
 
-%% Dependências de Serviço -> Entidade
-EmprestimoService ..> Emprestimo : instancia/salva
-EmprestimoService ..> Usuario : valida
-EmprestimoService ..> Jogo : altera status
+* id (PK);
+* nome;
+* email;
+* senha;
+* data_nasc;
 
-%% Camada de Controllers (Endpoints)
-class UsuarioController {
-    +cadastrarUsuario(Usuario) String
-    +listarUsuarios() List~Usuario~
-    +buscarUsuari(String nome) Usuario
-}
-class JogoController {
-    +cadastrarJogo(Jogo) String
-    +listarJogos() List~Jogo~
-    +buscarJogo(String nome) Jogo
-    +deletarJogo(String nome) String
-}
-class EmprestimoController {
-    +criarEmprestimo(EmprestimoRequest) String
-    +listarEmprestimos() List~Emprestimo~
-    +listarAtivos() List~Emprestimo~
-    +finalizarEmprestimo(Long id) String
-}
+# Jogo
+Armazena os jogos disponíveis na locadora:
 
-%% Dependências de Controller -> Service
-UsuarioController ..> UsuarioService : delega
-JogoController ..> JogoService : delega
-EmprestimoController ..> EmprestimoService : delega
+id (PK);
 
-%% Controllers -> DTO
-EmprestimoController ..> EmprestimoRequest : recebe
+nome;
 
-%% Tratamento Global de Exceções
-class GlobalExceptionHandler {
-    +tratarIllegalArgumentException(ex) ResponseEntity
-    +tratarExceptionGenerica(ex) ResponseEntity
-}
-GlobalExceptionHandler ..> EmprestimoController : intercepta
-GlobalExceptionHandler ..> UsuarioController : intercepta
-GlobalExceptionHandler ..> JogoController : intercepta
-```
+genero;
 
-Observações:
-* Usuários interagem com o sistema
-* O sistema gerencia os dados
-* As informações são persistidas no banco de dados
+disponivel;
 
-#### Nível 2 - Diagrama de Contêineres
+# Emprestimo
 
-Mostra os principais blocos que compõem a solução.
-```mermaid
-flowchart LR
+Relaciona usuários aos jogos:
 
-User[Usuário]
+* id (PK);
 
-Frontend[Front-end Web /Interface do usuário]
+* usuario_id (FK);
 
-Backend[API Spring Boot / Regras de negócio]
+* jogo_id (FK);
 
-Database[(Banco de Dados)]
+* data_inicio;
 
-User --> Frontend
-Frontend --> Backend
-Backend --> Database
-```
-#### Front-end:
+* data_fim;
 
-Interface utilizada pelos usuários para interagir com o sistema.
+* ativo;
 
-#### Back-end:
+# Relacionamentos
 
-API responsável por:
+* Um usuário pode possuir vários empréstimos
 
-* regras de negócio
+* Um jogo pode possuir vários empréstimos
 
-* controle de empréstimos
+* Um empréstimo pertence a apenas um usuário
 
-* gerenciamento de usuários e jogos
-
-* Banco de dados
-
-#### Armazena:
-
-* usuários
-
-* jogos
-
-* empréstimos
-
-#### Nível 3 - Diagrama de Componentes
-
-Mostra a estrutura interna da API.
-```mermaid
-flowchart TB
-
-Controller[Controllers / API REST]
-
-Service[Services / Regras de negócio]
-
-Repository[Repositories / Persistência de dados]
-
-Entity[Entities / Modelos do sistema]
-
-Controller --> Service
-Service --> Repository
-Repository --> Entity
-```
-
-#### Controllers:
-
-Responsáveis por expor os endpoints da aplicação.
-
-#### Services:
-
-Contêm a lógica de negócio do sistema.
-
-#### Repositories:
-
-Responsáveis pelo acesso ao banco de dados utilizando Spring Data JPA.
-
-#### Entities:
-
-Representam as tabelas do banco e os modelos do domínio.
+* Um empréstimo está associado a apenas um jogo
 
 ### Figma:
-* https://www.figma.com/design/suO1FpLmPP80FqrqljXjy7/Locadora-de-jogos?node-id=0-1&m=dev&t=RgO8oIJZlXgeKHd8-1
 
-Conclusão
+https://www.figma.com/design/suO1FpLmPP80FqrqljXjy7/Locadora-de-jogos?node-id=0-1&m=dev&t=RgO8oIJZlXgeKHd8-1
+
+------------------------------------------------------------------------------
+# Conclusão
+
 O projeto busca integrar conceitos teóricos e práticos da disciplina de Programação Web, aplicando padrões de projeto, arquitetura organizada e boas práticas de desenvolvimento, resultando em uma aplicação funcional, testável e implantada em produção.
