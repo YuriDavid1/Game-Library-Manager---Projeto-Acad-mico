@@ -24,8 +24,6 @@ Os requisitos funcionais descrevem as funcionalidades que o sistema deve oferece
 
 * RF06 — O sistema deve permitir o cadastro de jogos pelo administrador.
   
-Cada jogo deve possuir ao menos: nome, gênero e status de disponibilidade.
-
 * RF07 — O sistema deve permitir a consulta dos jogos cadastrados.
 
 * RF08 — O sistema deve permitir a consulta apenas dos jogos disponíveis para empréstimo.
@@ -33,8 +31,6 @@ Cada jogo deve possuir ao menos: nome, gênero e status de disponibilidade.
 * RF09 — O sistema deve permitir consultar os usuários cadastrados.
 
 * RF10 — O sistema deve permitir registrar o empréstimo de um jogo para um usuário.
-
-Regras: o usuário deve existir, o jogo deve existir e o jogo deve estar disponível.
 
 * RF11 — O sistema deve permitir informar o período do empréstimo.
 
