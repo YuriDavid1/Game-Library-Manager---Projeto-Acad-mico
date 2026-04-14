@@ -118,7 +118,7 @@ Regras definidas
 
 * O jogo volta a ficar disponível
 
-#Fluxo do Sistema
+# Fluxo do Sistema
 
 1. Administrador realiza login
 
@@ -156,67 +156,105 @@ Regras definidas
 # Back-end: Java com Spring Boot (Framework)
 
 O Spring Boot facilita a criação de APIs REST de forma organizada;
+
 Permite separar o projeto em camadas (Controller, Service e Repository);
+
 Possui integração simples com JPA/Hibernate para persistência de dados;
+
 Oferece suporte nativo à autenticação com JWT;
+
 Reduz configuração inicial e acelera o desenvolvimento;
+
 Amplamente utilizado no mercado corporativo Java;
+
 Adequado para projetos acadêmicos por sua organização e boas práticas.
 -----------------------------------------------------------
 # Front-end: HTML + CSS + JavaScript com React (Framework)
 
 Permite criação de interface web interativa e dinâmica;
+
 Componentização facilita reutilização de código;
+
 Separação clara entre interface e regras do sistema;
+
 Integração simples com API REST do backend;
+
 Facilita criação de telas como login, listagem e empréstimos;
+
 Amplamente utilizado no mercado de desenvolvimento web;
+
 Adequado para aplicações SPA (Single Page Application).
 -----------------------------------------------------------
 # Banco de Dados : H2 (Desenvolvimento) e PostgreSQL (Produção)
 
 H2 permite execução em memória sem necessidade de instalação;
+
 Facilita testes e desenvolvimento rápido;
+
 Integração nativa com Spring Boot;
+
 PostgreSQL é um banco relacional robusto e confiável;
+
 Suporte a relacionamentos entre entidades (usuário, jogos e empréstimos);
+
 Permite uso de chaves primárias e estrangeiras garantindo integridade dos dados;
+
 Amplamente utilizado em ambientes profissionais e acadêmicos.
 -----------------------------------------------------------
 # Testes:
 
 Testes unitários na camada Service para validação das regras de negócio;
+
 Garantem funcionamento correto do fluxo de empréstimos e devoluções;
+
 Permitem validar disponibilidade dos jogos;
+
 Facilitam manutenção e refatoração do código;
+
 Testes dos principais endpoints da API REST;
+
 Auxiliam na prevenção de regressões durante evolução do sistema.
 -----------------------------------------------------------
 ## CI/CD:
 
 Repositório hospedado no GitHub para versionamento do código;
+
 Pipeline automático para build da aplicação;
+
 Execução automática dos testes unitários;
+
 Validação do projeto a cada commit ou pull request;
+
 Possibilidade de deploy automatizado;
+
 Garante maior confiabilidade e qualidade do sistema.
 -----------------------------------------------------------
 ## O sistema contará com: 
 
 Endpoint de autenticação para login de usuários;
+
 Geração de token JWT para controle de sessão;
+
 Proteção de rotas que exigem autenticação;
+
 Controle de acesso baseado em token;
+
 Separação de permissões entre administrador e usuário;
+
 Validação de requisições autenticadas.
 -----------------------------------------------------------
 ## Observabilidade:
 
 Logs estruturados para acompanhamento da aplicação;
+
 Registro de erros e exceções do sistema;
+
 Monitoramento básico das operações da API;
+
 Facilita identificação de falhas durante execução;
+
 Possibilidade de integração futura com ferramentas de monitoramento;
+
 Auxilia na manutenção e evolução do sistema.
 
 -----------------------------------------------------------
