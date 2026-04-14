@@ -6,8 +6,6 @@ O Game Library Manager é um sistema web desenvolvido para o gerenciamento de um
 
 O projeto foi desenvolvido com arquitetura em camadas e API REST no back-end, além de uma interface web no front-end, visando organização do código, facilidade de manutenção e aplicação de boas práticas de desenvolvimento.
 
------------------------------------------------------------
-
 # Requisitos Funcionais
 
 Os requisitos funcionais descrevem as funcionalidades que o sistema deve oferecer.
@@ -154,7 +152,7 @@ Os requisitos não funcionais descrevem características de qualidade do sistema
     
 15. Sistema marca o jogo como disponível novamente
 
-#Tecnologias
+# Tecnologias
 
 # Back-end: Java com Spring Boot (Framework)
 
@@ -260,36 +258,8 @@ Possibilidade de integração futura com ferramentas de monitoramento;
 
 Auxilia na manutenção e evolução do sistema.
 
-
-
-
-
-
-
-
-
-
-
- 
-# Arquitetura do Sistema
-
-O sistema foi estruturado utilizando arquitetura em camadas, separando responsabilidades entre os componentes da aplicação. 
-
-### Camadas da aplicação:
-
-* Controller - interface da API;
-
-* Service - regras de negócio;
-
-* Repository - acesso a dados;
-
-* Entity - representação das tabelas do banco
-
-
-
-
-
-### Arquitetura - Modelo C4
+# Diagramas
+# Modelo C4
 
 Os níveis utilizados foram: 
 * Contexto
@@ -299,18 +269,139 @@ Os níveis utilizados foram:
 #### Nível 1 - Diagrama de Contexto
 
 Mostra o sistema como um todo e sua interação com os usuários.
+
+# Classe
 ```mermaid
-flowchart LR
+---
+config:
+  layout: elk
+---
+classDiagram
 
-User[Usuário / Administrador]
+%% Entidades e DTO
+class Usuario {
+    -Long id
+    -String nome
+    +getId() Long
+    +getNome() String
+}
 
-System[Game Library Manager / Sistema de gerenciamento de jogos]
+class Jogo {
+    -Long id
+    -String nome
+    -String genero
+    -boolean disponivel
+    +getId() Long
+    +getNome() String
+    +getGenero() String
+    +isDisponivel() boolean
+    +setDisponivel(boolean) void
+}
 
-Database[(Banco de Dados)]
+class Emprestimo {
+    -Long id
+    -boolean ativo
+    +getJogo() Jogo
+    +getUsuario() Usuario
+    +isAtivo() boolean
+    +setAtivo(boolean) void
+}
 
-User --> System
-System --> Database
+class EmprestimoRequest {
+    -String nomeUsuario
+    -String nomeJogo
+    +getNomeUsuario() String
+    +getNomeJogo() String
+}
+
+%% Relacionamentos entre Entidades
+Emprestimo "*" --> "1" Usuario : pertence a
+Emprestimo "*" --> "1" Jogo : contém
+
+%% Repositórios (Com os métodos de query personalizados)
+class UsuarioRepository {
+    <<interface>>
+    +findByNomeIgnoreCase(String nome) Optional~Usuario~
+}
+class JogoRepository {
+    <<interface>>
+    +findByNomeIgnoreCase(String nome) Optional~Jogo~
+}
+class EmprestimoRepository {
+    <<interface>>
+    +findByAtivoTrue() List~Emprestimo~
+    +existsByJogoIdAndAtivoTrue(long jogoId) boolean
+}
+
+%% Camada de Serviços (Regras de negócio)
+class UsuarioService {
+    +cadastrarUsuario(Usuario) void
+    +buscarUsuario(String nome) Usuario
+    +listarTodos() List~Usuario~
+}
+class JogoService {
+    +cadastrarJogo(Jogo) void
+    +deletarJogo(String nome) void
+    +buscarJogo(String nome) Jogo
+    +listarTodos() List~Jogo~
+}
+class EmprestimoService {
+    +criarEmprestimo(String nomeUsuario, String nomeJogo) Emprestimo
+    +finalizarEmprestimo(Long idEmprestimo) void
+    +listarAtivos() List~Emprestimo~
+    +listarTodos() List~Emprestimo~
+}
+
+%% Dependências de Serviço -> Repositório
+UsuarioService ..> UsuarioRepository : usa
+JogoService ..> JogoRepository : usa
+
+EmprestimoService ..> EmprestimoRepository : usa
+EmprestimoService ..> UsuarioRepository : usa
+EmprestimoService ..> JogoRepository : usa
+
+%% Dependências de Serviço -> Entidade
+EmprestimoService ..> Emprestimo : instancia/salva
+EmprestimoService ..> Usuario : valida
+EmprestimoService ..> Jogo : altera status
+
+%% Camada de Controllers (Endpoints)
+class UsuarioController {
+    +cadastrarUsuario(Usuario) String
+    +listarUsuarios() List~Usuario~
+    +buscarUsuari(String nome) Usuario
+}
+class JogoController {
+    +cadastrarJogo(Jogo) String
+    +listarJogos() List~Jogo~
+    +buscarJogo(String nome) Jogo
+    +deletarJogo(String nome) String
+}
+class EmprestimoController {
+    +criarEmprestimo(EmprestimoRequest) String
+    +listarEmprestimos() List~Emprestimo~
+    +listarAtivos() List~Emprestimo~
+    +finalizarEmprestimo(Long id) String
+}
+
+%% Dependências de Controller -> Service
+UsuarioController ..> UsuarioService : delega
+JogoController ..> JogoService : delega
+EmprestimoController ..> EmprestimoService : delega
+
+%% Controllers -> DTO
+EmprestimoController ..> EmprestimoRequest : recebe
+
+%% Tratamento Global de Exceções
+class GlobalExceptionHandler {
+    +tratarIllegalArgumentException(ex) ResponseEntity
+    +tratarExceptionGenerica(ex) ResponseEntity
+}
+GlobalExceptionHandler ..> EmprestimoController : intercepta
+GlobalExceptionHandler ..> UsuarioController : intercepta
+GlobalExceptionHandler ..> JogoController : intercepta
 ```
+
 Observações:
 * Usuários interagem com o sistema
 * O sistema gerencia os dados
