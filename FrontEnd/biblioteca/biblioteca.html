@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library - Detalhes do Jogo</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="biblioteca.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rev1kpi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../images/logo.png" alt="logo" width="200" height="100">
+                <a class="logo" href="../home/home.html">Game Library</a>
+            </div>
+            
+            <ul class="nav-list">
+                <li><a href="../home/home.html">Inicio</a></li>
+                <li><a href="/">Biblioteca</a></li>
+                <li><a href="../login/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-principal">
+        <!-- SEÇÃO HERO COM DESTAQUE DO JOGO -->
+        <section class="hero-section">
+            <div class="hero-background" style="background-image: url('https://via.placeholder.com/1400x500');"></div>
+            
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="game-badge">
+                        <span class="status-badge disponivel">✓ Disponível</span>
+                    </div>
+                    
+                    <h1 class="game-title">
+                        Shadow <span class="highlight">Archer</span>
+                    </h1>
+                    
+                    <div class="game-meta">
+                        <span class="genre">AÇÃO</span>
+                        <span class="separator">•</span>
+                        <span class="genre">AVENTURA</span>
+                    </div>
+
+                    <div class="game-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-text">4.8 <span class="rating-count">(230 avaliações)</span></span>
+                    </div>
+
+                    <div class="game-description">
+                        <h3>Sobre o Jogo:</h3>
+                        <p>Torne-se uma lendária arqueira em um mundo dominado por trevas é batalhas épicas! Explore ambientes incríveis, resolva mistérios antigos e derrote inimigos poderosos com sua habilidade e destreza.</p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-rent">
+                            <span>Alugar por R$ 15,90</span>
+                        </button>
+                        <button class="btn-buy">
+                            <span>Comprar R$ 79,90</span>
+                        </button>
+                        <button class="btn-trailer">
+                            <i class="fas fa-play"></i>
+                            <span>Ver Trailer</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <img src="https://via.placeholder.com/300x400" alt="Shadow Archer" class="game-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- CARROSSEL DE DESTAQUE -->
+        <section class="spotlight-section">
+            <div class="spotlight-track">
+                <div class="spotlight-item">
+                    <img src="https://via.placeholder.com/600x350" alt="Jogo 1">
+                    <div class="spotlight-info">
+                        <h3>Horror Night</h3>
+                        <p class="genre-tag">TERROR</p>
+                        <span class="badge indisponivel">🚫 Indisponivel</span>
+                        <button class="btn-details">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="spotlight-item">
+                    <img src="https://via.placeholder.com/600x350" alt="Jogo 2">
+                    <div class="spotlight-info">
+                        <h3>Galaxy War</h3>
+                        <p class="genre-tag">FICÇÃO CIENTÍFICA</p>
+                        <span class="badge disponivel-badge">✓ Disponível</span>
+                        <button class="btn-rent-small">Alugar por R$ 19,90</button>
+                    </div>
+                </div>
+
+                <div class="spotlight-item">
+                    <img src="https://via.placeholder.com/600x350" alt="Jogo 3">
+                    <div class="spotlight-info">
+                        <h3>Mortal Fight</h3>
+                        <p class="genre-tag">LUTA</p>
+                        <span class="badge disponivel-badge">✓ Disponível</span>
+                        <button class="btn-rent-small">Alugar por R$ 9,90</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-nav prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+
+        <!-- SEÇÃO DE JOGOS DISPONÍVEIS -->
+        <section class="available-games">
+            <h2>Jogos Disponíveis</h2>
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <div class="games-grid">
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/250x300" alt="Cyber Hunter">
+                    <h3>Cyber Hunter</h3>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/250x300" alt="Racing Clash">
+                    <h3>Racing <span>Clash</span></h3>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/250x300" alt="Epic Fantasy">
+                    <h3>Epic Fantasy</h3>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/250x300" alt="Football Arena">
+                    <h3>Football <span>Arena</span></h3>
+                </div>
+            </div>
+
+            <button class="carousel-nav prev-games">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next-games">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+
+        <!-- SIDEBAR - SEU ALUGUEL -->
+        <aside class="rental-sidebar">
+            <div class="rental-card">
+                <div class="rental-header">
+                    <img src="https://via.placeholder.com/120x150" alt="Shadow Archer">
+                    <h3>Shadow <span>Archer</span></h3>
+                </div>
+
+                <div class="rental-info">
+                    <p class="rental-time">Tempo resalane: <strong>8 dias</strong></p>
+                    <div class="rental-actions">
+                        <button class="btn-finalize">
+                            Finalizar Aluguel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre Nós</h4>
+                <p>Game Library é a maior plataforma de aluguel de games do Brasil. Temos os melhores títulos para você.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/">Biblioteca</a></li>
+                    <li><a href="/">Contato</a></li>
+                    <li><a href="/">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Políticas</h4>
+                <ul>
+                    <li><a href="/">Termos de Uso</a></li>
+                    <li><a href="/">Política de Privacidade</a></li>
+                    <li><a href="/">Cookies</a></li>
+                    <li><a href="/">Devoluções</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Game Library. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
