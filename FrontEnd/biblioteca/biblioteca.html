@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Library - Detalhes do Jogo</title>
-    <link rel="stylesheet" href="home.css">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="../home/home.css">
     <link rel="stylesheet" href="biblioteca.css">
     <link rel="stylesheet" href="https://use.typekit.net/rev1kpi.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,7 +19,7 @@
             
             <ul class="nav-list">
                 <li><a href="../home/home.html">Inicio</a></li>
-                <li><a href="/">Biblioteca</a></li>
+                <li><a href="../biblioteca/biblioteca.html">Biblioteca</a></li>
                 <li><a href="../login/login.html">Login</a></li>
             </ul>
         </nav>
@@ -31,22 +31,22 @@
             <div class="hero-background" style="background-image: url('https://via.placeholder.com/1400x500');"></div>
             
             <div class="hero-content">
-                <div class="hero-left">
+                <div class="hero-esq">
                     <div class="game-badge">
                         <span class="status-badge disponivel">✓ Disponível</span>
                     </div>
                     
-                    <h1 class="game-title">
+                    <h1 class="game-titulo">
                         Shadow <span class="highlight">Archer</span>
                     </h1>
                     
                     <div class="game-meta">
-                        <span class="genre">AÇÃO</span>
-                        <span class="separator">•</span>
-                        <span class="genre">AVENTURA</span>
+                        <span class="genero">AÇÃO</span>
+                        <span class="separador">•</span>
+                        <span class="genero">AVENTURA</span>
                     </div>
 
-                    <div class="game-rating">
+                    <div class="game-aval">
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -54,24 +54,20 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <span class="rating-text">4.8 <span class="rating-count">(230 avaliações)</span></span>
+                        <span class="aval-texto">4.8 <span class="aval-cont">(230 avaliações)</span></span>
                     </div>
 
-                    <div class="game-description">
+                    <div class="game-desc">
                         <h3>Sobre o Jogo:</h3>
                         <p>Torne-se uma lendária arqueira em um mundo dominado por trevas é batalhas épicas! Explore ambientes incríveis, resolva mistérios antigos e derrote inimigos poderosos com sua habilidade e destreza.</p>
                     </div>
 
                     <div class="action-buttons">
-                        <button class="btn-rent">
+                        <button class="btn-alugar">
                             <span>Alugar por R$ 15,90</span>
                         </button>
-                        <button class="btn-buy">
+                        <button class="btn-comprar">
                             <span>Comprar R$ 79,90</span>
-                        </button>
-                        <button class="btn-trailer">
-                            <i class="fas fa-play"></i>
-                            <span>Ver Trailer</span>
                         </button>
                     </div>
                 </div>
@@ -91,7 +87,7 @@
                         <h3>Horror Night</h3>
                         <p class="genre-tag">TERROR</p>
                         <span class="badge indisponivel">🚫 Indisponivel</span>
-                        <button class="btn-details">Ver Detalhes</button>
+                        <button class="btn-detalhes">Ver Detalhes</button>
                     </div>
                 </div>
 
@@ -99,9 +95,9 @@
                     <img src="https://via.placeholder.com/600x350" alt="Jogo 2">
                     <div class="spotlight-info">
                         <h3>Galaxy War</h3>
-                        <p class="genre-tag">FICÇÃO CIENTÍFICA</p>
+                        <p class="genero-tag">FICÇÃO CIENTÍFICA</p>
                         <span class="badge disponivel-badge">✓ Disponível</span>
-                        <button class="btn-rent-small">Alugar por R$ 19,90</button>
+                        <button class="btn-alugar-pequeno">Alugar por R$ 19,90</button>
                     </div>
                 </div>
 
@@ -109,26 +105,26 @@
                     <img src="https://via.placeholder.com/600x350" alt="Jogo 3">
                     <div class="spotlight-info">
                         <h3>Mortal Fight</h3>
-                        <p class="genre-tag">LUTA</p>
+                        <p class="genero-tag">LUTA</p>
                         <span class="badge disponivel-badge">✓ Disponível</span>
-                        <button class="btn-rent-small">Alugar por R$ 9,90</button>
+                        <button class="btn-alugar-pequeno">Alugar por R$ 9,90</button>
                     </div>
                 </div>
             </div>
 
-            <button class="carousel-nav prev">
+            <button class="carrossel-nav prev">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="carousel-nav next">
+            <button class="carrossel-nav next">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </section>
 
         <!-- SEÇÃO DE JOGOS DISPONÍVEIS -->
-        <section class="available-games">
+        <section class="games-disponiveis">
             <h2>Jogos Disponíveis</h2>
-            <div class="carousel-dots">
-                <span class="dot active"></span>
+            <div class="carrossel-dots">
+                <span class="dot ativo"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
@@ -152,26 +148,26 @@
                 </div>
             </div>
 
-            <button class="carousel-nav prev-games">
+            <button class="carrossel-nav ant-jogo">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="carousel-nav next-games">
+            <button class="carrossel-nav prox-jogo">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </section>
 
         <!-- SIDEBAR - SEU ALUGUEL -->
-        <aside class="rental-sidebar">
-            <div class="rental-card">
-                <div class="rental-header">
+        <aside class="aluguel-sidebar">
+            <div class="aluguel-card">
+                <div class="aluguel-header">
                     <img src="https://via.placeholder.com/120x150" alt="Shadow Archer">
                     <h3>Shadow <span>Archer</span></h3>
                 </div>
 
-                <div class="rental-info">
-                    <p class="rental-time">Tempo resalane: <strong>8 dias</strong></p>
-                    <div class="rental-actions">
-                        <button class="btn-finalize">
+                <div class="aluguel-info">
+                    <p class="aluguel-time">Tempo restante: <strong>8 dias</strong></p>
+                    <div class="aluguel-actions">
+                        <button class="btn-finalizar">
                             Finalizar Aluguel
                         </button>
                     </div>

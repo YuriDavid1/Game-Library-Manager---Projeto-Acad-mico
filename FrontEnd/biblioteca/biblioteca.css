@@ -96,7 +96,7 @@ body {
     border: 1px solid var(--danger-color);
 }
 
-.game-title {
+.game-titulo {
     font-size: 64px;
     font-weight: 800;
     line-height: 1;
@@ -104,7 +104,7 @@ body {
     text-transform: capitalize;
 }
 
-.game-title .highlight {
+.game-titulo .highlight {
     color: var(--primary-color);
     display: inline;
 }
@@ -120,7 +120,7 @@ body {
     letter-spacing: 2px;
 }
 
-.game-rating {
+.game-aval {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -134,23 +134,23 @@ body {
     color: var(--primary-color);
 }
 
-.rating-text {
+.aval-texto {
     font-size: 16px;
     font-weight: 700;
     color: var(--text-primary);
 }
 
-.rating-count {
+.aval-cont {
     color: var(--text-secondary);
     font-weight: 400;
 }
 
-.game-description {
+.game-desc {
     margin: 30px 0;
     max-width: 600px;
 }
 
-.game-description h3 {
+.game-desc h3 {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 12px;
@@ -159,7 +159,7 @@ body {
     color: var(--primary-color);
 }
 
-.game-description p {
+.game-desc p {
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.8;
@@ -172,9 +172,8 @@ body {
     flex-wrap: wrap;
 }
 
-.btn-rent,
-.btn-buy,
-.btn-trailer {
+.btn-alugar,
+.btn-comprar {
     padding: 15px 35px;
     border: none;
     border-radius: 8px;
@@ -189,37 +188,26 @@ body {
     letter-spacing: 1px;
 }
 
-.btn-rent {
+.btn-alugar {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     color: var(--dark-bg);
     box-shadow: 0 8px 24px rgba(252, 202, 68, 0.3);
 }
 
-.btn-rent:hover {
+.btn-alugar:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 32px rgba(252, 202, 68, 0.5);
 }
 
-.btn-buy {
+.btn-comprar {
     background: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
 }
 
-.btn-buy:hover {
+.btn-comprar:hover {
     background: var(--primary-color);
     color: var(--dark-bg);
-}
-
-.btn-trailer {
-    background: transparent;
-    border: 2px solid var(--text-secondary);
-    color: var(--text-secondary);
-}
-
-.btn-trailer:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
 }
 
 .game-cover {
@@ -303,7 +291,7 @@ body {
     margin-bottom: 10px;
 }
 
-.genre-tag {
+.genero-tag {
     font-size: 12px;
     color: var(--text-secondary);
     font-weight: 600;
@@ -331,8 +319,8 @@ body {
     color: var(--success-color);
 }
 
-.btn-details,
-.btn-rent-small {
+.btn-detalhes,
+.btn-alugar-pequeno {
     padding: 10px 20px;
     border: none;
     border-radius: 6px;
@@ -342,28 +330,28 @@ body {
     transition: 0.3s ease;
 }
 
-.btn-details {
+.btn-detalhes {
     background: transparent;
     border: 1px solid var(--text-secondary);
     color: var(--text-secondary);
 }
 
-.btn-details:hover {
+.btn-detalhes:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
 
-.btn-rent-small {
+.btn-alugar-pequeno {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     color: var(--dark-bg);
 }
 
-.btn-rent-small:hover {
+.btn-alugar-pequeno:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(252, 202, 68, 0.3);
 }
 
-.carousel-nav {
+.carrossel-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -382,32 +370,32 @@ body {
     justify-content: center;
 }
 
-.carousel-nav:hover {
+.carrossel-nav:hover {
     background: rgba(252, 202, 68, 0.3);
     transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-nav.prev {
+.carrossel-nav.prev {
     left: 20px;
 }
 
-.carousel-nav.next {
+.carrossel-nav.next {
     right: 20px;
 }
 
 /* AVAILABLE GAMES */
-.available-games {
+.games-disponiveis {
     position: relative;
     margin: 80px 0;
 }
 
-.available-games h2 {
+.games-disponiveis h2 {
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 20px;
 }
 
-.carousel-dots {
+.carrossel-dots {
     display: flex;
     justify-content: center;
     gap: 12px;
@@ -423,7 +411,7 @@ body {
     transition: 0.3s ease;
 }
 
-.dot.active {
+.dot.ativo {
     background: var(--primary-color);
     width: 30px;
     border-radius: 6px;
@@ -477,23 +465,23 @@ body {
     color: var(--primary-color);
 }
 
-.prev-games,
-.next-games {
+.ant-jogo,
+.prox-jogo {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.prev-games {
+.ant-jogo {
     left: -70px;
 }
 
-.next-games {
+.prox-jogo {
     right: -70px;
 }
 
-/* RENTAL SIDEBAR */
-.rental-sidebar {
+/* ALUGUEL SIDEBAR */
+.aluguel-sidebar {
     position: fixed;
     right: 30px;
     bottom: 30px;
@@ -501,7 +489,7 @@ body {
     z-index: 100;
 }
 
-.rental-card {
+.aluguel-card {
     background: linear-gradient(135deg, var(--card-bg) 0%, #1a2438 100%);
     border: 2px solid var(--primary-color);
     border-radius: 12px;
@@ -509,14 +497,14 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
 }
 
-.rental-header {
+.aluguel-header {
     display: flex;
     gap: 15px;
     margin-bottom: 25px;
     align-items: flex-start;
 }
 
-.rental-header img {
+.aluguel-header img {
     width: 80px;
     height: 100px;
     object-fit: cover;
@@ -524,33 +512,33 @@ body {
     border: 1px solid var(--border-color);
 }
 
-.rental-header h3 {
+.aluguel-header h3 {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.3;
 }
 
-.rental-header h3 span {
+.aluguel-header h3 span {
     color: var(--primary-color);
 }
 
-.rental-info {
+.aluguel-info {
     margin-bottom: 20px;
 }
 
-.rental-time {
+.aluguel-time {
     font-size: 13px;
     color: var(--text-secondary);
     margin-bottom: 15px;
 }
 
-.rental-actions {
+.aluguel-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.btn-finalize {
+.btn-finalizar {
     padding: 12px 20px;
     background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
     border: none;
@@ -564,7 +552,7 @@ body {
     letter-spacing: 1px;
 }
 
-.btn-finalize:hover {
+.btn-finalizar:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
 }
@@ -589,7 +577,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .game-title {
+    .game-titulo {
         font-size: 48px;
     }
 
@@ -601,7 +589,7 @@ footer {
         flex: 0 0 400px;
     }
 
-    .rental-sidebar {
+    .aluguel-sidebar {
         position: static;
         width: 100%;
         margin: 40px 0;
@@ -633,9 +621,8 @@ footer {
         flex-direction: column;
     }
 
-    .btn-rent,
-    .btn-buy,
-    .btn-trailer {
+    .btn-alugar,
+    .btn-comprar {
         width: 100%;
         justify-content: center;
     }
@@ -657,13 +644,13 @@ footer {
         font-size: 20px;
     }
 
-    .carousel-nav.prev-games,
-    .carousel-nav.next-games {
+    .carrossel-nav.ant-jogo,
+    .carrossel-nav.prox-jogo {
         display: none;
     }
 
-    .carousel-nav.prev,
-    .carousel-nav.next {
+    .carrossel-nav.prev,
+    .carrossel-nav.next {
         width: 40px;
         height: 40px;
         font-size: 16px;
