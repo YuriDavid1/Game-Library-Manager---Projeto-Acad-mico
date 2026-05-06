@@ -21,7 +21,6 @@ jobs:
           cache: maven
 
       - name: Build application
-        run: ./mvnw -B clean package -DskipTests --file pom.xml
-
+        run: cd game-library && ./mvnw -B clean package -DskipTests
       - name: Message
         run: echo "Build concluído! Deploy precisa ser feito via Railway Dashboard"
