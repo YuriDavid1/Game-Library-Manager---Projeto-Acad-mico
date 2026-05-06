@@ -22,7 +22,8 @@ jobs:
           cache: maven
 
       - name: Run tests with Maven
-        run: cd game-library && chmod +x mvnw && ./mvnw -B clean test
+      run: cd game-library && chmod +x mvnw && ./mvnw -B clean test -f pom.xml
+
       - name: Generate coverage report
         run: ./mvnw -B jacoco:report --file pom.xml
 
