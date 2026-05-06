@@ -24,4 +24,4 @@ jobs:
         run: cd game-library && chmod +x mvnw && ./mvnw -B clean package -DskipTests -f pom.xml
 
       - name: Message
-        run: echo "Build concluído! Deploy precisa ser feito via Railway Dashboard"
+        run: echo "Build concluído! Deploy via Railway"
