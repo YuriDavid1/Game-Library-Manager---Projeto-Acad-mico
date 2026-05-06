@@ -20,7 +20,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build application
-        run: cd game-library && ./mvnw -B clean package -DskipTests
+      - name: Build with Maven
+        run: cd game-library && chmod +x mvnw && ./mvnw -B clean package -DskipTests
+
       - name: Message
         run: echo "Build concluído! Deploy precisa ser feito via Railway Dashboard"
