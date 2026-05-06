@@ -1,0 +1,15 @@
+target/
+.git/
+.github/
+.gitignore
+.md5sum
+.DS_Store
+Dockerfile
+docker-compose.yml
+.dockerignore
+*.log
+.maven/
+.m2/
+*.iml
+.idea/
+*.class
