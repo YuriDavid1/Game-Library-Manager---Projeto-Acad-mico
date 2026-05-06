@@ -54,7 +54,7 @@ jobs:
         run: cd game-library && ./mvnw -B clean package -DskipTests
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: game-library-jar
           path: game-library/target/*.jar
