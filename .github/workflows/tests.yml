@@ -20,6 +20,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+      - name: Grant execute permission for mvnw
+        run: chmod +x game-library/mvnw
 
       - name: Run tests with Maven
         run: cd game-library && ./mvnw -B clean test
