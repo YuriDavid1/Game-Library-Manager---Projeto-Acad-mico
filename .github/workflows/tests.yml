@@ -22,15 +22,15 @@ jobs:
           cache: maven
 
       - name: Run tests with Maven
-        run: cd game-library && chmod +x mvnw && ./mvnw -B clean test -f pom.xml
+        run: ./mvnw -B clean test --file pom.xml
 
       - name: Generate coverage report
-        run: cd game-library && ./mvnw -B jacoco:report -f pom.xml
+        run: ./mvnw -B jacoco:report --file pom.xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: game-library/target/site/jacoco/jacoco.xml
+          file: ./target/site/jacoco/jacoco.xml
           fail_ci_if_error: false
           verbose: true
 
@@ -50,11 +50,11 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: cd game-library && chmod +x mvnw && ./mvnw -B clean package -DskipTests
+        run: ./mvnw -B clean package -DskipTests --file pom.xml
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: game-library-jar
-          path: game-library/target/*.jar
+          path: target/*.jar
           retention-days: 5
