@@ -16,6 +16,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -36,71 +37,84 @@ class UsuarioServiceTest {
     }
 
     @Test
-    @DisplayName("Deve registrar um usuário válido com sucesso")
-    void testRegistrarUsuarioComSucesso() {
-        when(usuarioRepository.save(any(Usuario.class)))
-                .thenReturn(usuarioValido);
+    @DisplayName("Deve cadastrar um usuário válido com sucesso")
+    void testCadastrarUsuarioComSucesso() {
+        when(usuarioRepository.findByNomeIgnoreCase(anyString()))
+                .thenReturn(Optional.empty());
 
-        usuarioService.registrarUsuario(usuarioValido);
+        usuarioService.cadastrarUsuario(usuarioValido);
 
         verify(usuarioRepository, times(1)).save(usuarioValido);
     }
 
     @Test
-    @DisplayName("Deve lançar exceção ao registrar usuário nulo")
-    void testRegistrarUsuarioNulo() {
+    @DisplayName("Deve lançar exceção ao cadastrar usuário nulo")
+    void testCadastrarUsuarioNulo() {
         assertThrows(IllegalArgumentException.class, () -> {
-            usuarioService.registrarUsuario(null);
+            usuarioService.cadastrarUsuario(null);
         });
 
         verify(usuarioRepository, never()).save(any());
     }
 
     @Test
-    @DisplayName("Deve lançar exceção ao registrar usuário com nome nulo")
-    void testRegistrarUsuarioComNomeNulo() {
+    @DisplayName("Deve lançar exceção ao cadastrar usuário com nome nulo")
+    void testCadastrarUsuarioComNomeNulo() {
         Usuario usuarioInvalido = new Usuario(null);
 
         assertThrows(IllegalArgumentException.class, () -> {
-            usuarioService.registrarUsuario(usuarioInvalido);
+            usuarioService.cadastrarUsuario(usuarioInvalido);
         });
 
         verify(usuarioRepository, never()).save(any());
     }
 
     @Test
-    @DisplayName("Deve lançar exceção ao registrar usuário com nome vazio")
-    void testRegistrarUsuarioComNomeVazio() {
+    @DisplayName("Deve lançar exceção ao cadastrar usuário com nome vazio")
+    void testCadastrarUsuarioComNomeVazio() {
         Usuario usuarioInvalido = new Usuario("   ");
 
         assertThrows(IllegalArgumentException.class, () -> {
-            usuarioService.registrarUsuario(usuarioInvalido);
+            usuarioService.cadastrarUsuario(usuarioInvalido);
         });
 
         verify(usuarioRepository, never()).save(any());
     }
 
     @Test
-    @DisplayName("Deve buscar um usuário existente")
-    void testBuscarUsuarioExistente() {
-        when(usuarioRepository.findById(1L))
+    @DisplayName("Deve lançar exceção ao cadastrar usuário com nome duplicado")
+    void testCadastrarUsuarioDuplicado() {
+        when(usuarioRepository.findByNomeIgnoreCase(anyString()))
                 .thenReturn(Optional.of(usuarioValido));
 
-        Usuario resultado = usuarioService.buscarUsuario(1L);
+        assertThrows(IllegalArgumentException.class, () -> {
+            usuarioService.cadastrarUsuario(usuarioValido);
+        });
+
+        verify(usuarioRepository, never()).save(any());
+    }
+
+    @Test
+    @DisplayName("Deve buscar um usuário existente pelo nome")
+    void testBuscarUsuarioExistente() {
+        when(usuarioRepository.findByNomeIgnoreCase("João Silva"))
+                .thenReturn(Optional.of(usuarioValido));
+
+        Usuario resultado = usuarioService.buscarUsuario("João Silva");
 
         assertNotNull(resultado);
         assertEquals("João Silva", resultado.getNome());
-        verify(usuarioRepository, times(1)).findById(1L);
+        verify(usuarioRepository, times(1)).findByNomeIgnoreCase("João Silva");
     }
 
     @Test
     @DisplayName("Deve lançar exceção ao buscar usuário inexistente")
     void testBuscarUsuarioInexistente() {
-        when(usuarioRepository.findById(999L))
+        when(usuarioRepository.findByNomeIgnoreCase(anyString()))
                 .thenReturn(Optional.empty());
 
         assertThrows(IllegalArgumentException.class, () -> {
-            usuarioService.buscarUsuario(999L);
+            usuarioService.buscarUsuario("Usuário Inexistente");
         });
     }
 
@@ -116,7 +130,7 @@ class UsuarioServiceTest {
 
         assertNotNull(resultado);
         assertEquals(2, resultado.size());
-        verify(usuarioRepository, times(1)).findAll();
+        verify(usuarioRepository, times(2)).findAll();
     }
 
     @Test

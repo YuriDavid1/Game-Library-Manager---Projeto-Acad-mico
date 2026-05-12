@@ -108,6 +108,7 @@ class JogoServiceTest {
 
         assertNotNull(resultado);
         assertEquals("God of War", resultado.getNome());
+        assertEquals("Ação", resultado.getGenero());
         verify(jogoRepository, times(1)).findByNomeIgnoreCase("God of War");
     }
 
@@ -158,7 +159,7 @@ class JogoServiceTest {
 
         assertNotNull(resultado);
         assertEquals(2, resultado.size());
-        verify(jogoRepository, times(1)).findAll();
+        verify(jogoRepository, times(2)).findAll();
     }
 
     @Test
@@ -169,5 +170,29 @@ class JogoServiceTest {
         assertThrows(IllegalArgumentException.class, () -> {
             jogoService.listarTodos();
         });
+    }
+
+    @Test
+    @DisplayName("Deve manter disponibilidade como true ao cadastrar")
+    void testDisponibilidadeAoCadastrar() {
+        Jogo jogoNovo = new Jogo("Elden Ring", "RPG");
+        when(jogoRepository.findByNomeIgnoreCase(anyString()))
+                .thenReturn(Optional.empty());
+
+        jogoService.cadastrarJogo(jogoNovo);
+
+        assertTrue(jogoNovo.isDisponivel());
+    }
+
+    @Test
+    @DisplayName("Deve respeitar case-insensitive na busca")
+    void testBuscaCaseInsensitive() {
+        when(jogoRepository.findByNomeIgnoreCase("GOD OF WAR"))
+                .thenReturn(Optional.of(jogoValido));
+
+        Jogo resultado = jogoService.buscarJogo("GOD OF WAR");
+
+        assertNotNull(resultado);
+        verify(jogoRepository, times(1)).findByNomeIgnoreCase("GOD OF WAR");
     }
 }
