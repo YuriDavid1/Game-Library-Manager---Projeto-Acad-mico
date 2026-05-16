@@ -1,9 +1,9 @@
 // Referências dos elementos HTML
 const cadastroForm = document.querySelector('form');
-const nomeInput = document.querySelector('input[name="nome"]'); // ajustar
-const emailInput = document.querySelector('input[name="email"]'); // ajustar
-const senhaInput = document.querySelector('input[name="senha"]'); // ajustar
-const botaoCadastro = document.querySelector('button'); // ajustar
+const nomeInput = document.querySelector('input[name="nomeCad"]'); 
+const emailInput = document.querySelector('input[name="emailCad"]'); 
+const senhaInput = document.querySelector('input[name="senhaCad"]'); 
+const botaoCadastro = document.querySelector('button#cadButton'); 
 
 // Função para fazer cadastro
 async function fazerCadastro(event) {

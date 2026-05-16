@@ -1,8 +1,8 @@
 // Referências dos elementos HTML
-const loginForm = document.querySelector('form'); // ou especificar pelo ID
-const emailInput = document.querySelector('input[type="email"]'); // ajustar selector
-const senhaInput = document.querySelector('input[type="password"]'); // ajustar selector
-const botaoLogin = document.querySelector('button'); // ajustar selector
+const loginForm = document.querySelector('form');
+const emailInput = document.querySelector('input[type="emailLogin"]');
+const senhaInput = document.querySelector('input[type="senhaLogin"]'); 
+const botaoLogin = document.querySelector('button#logButton'); 
 
 // Função para fazer login
 async function fazerLogin(event) {
