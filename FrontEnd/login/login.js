@@ -1,46 +1,63 @@
-// Referências dos elementos HTML
-const loginForm = document.querySelector('form');
-const emailInput = document.querySelector('input[type="emailLogin"]');
-const senhaInput = document.querySelector('input[type="senhaLogin"]'); 
-const botaoLogin = document.querySelector('button#logButton'); 
+console.log('Login.js (com JWT) carregado');
 
-// Função para fazer login
+const formLogin = document.querySelector('form');
+const emailInput = document.getElementById('emailLogin');
+const senhaInput = document.getElementById('senhaLogin');
+const botaoLogin = document.querySelector('.logButton');
+
 async function fazerLogin(event) {
-  event.preventDefault(); // Previne recarregar a página
-
-  // Pegar valores dos inputs
-  const email = emailInput.value.trim();
-  const senha = senhaInput.value.trim();
-
-  // Validar se campos estão preenchidos
+  event.preventDefault();
+  
+  console.log('Login clicado...');
+  
+  const email = emailInput?.value.trim();
+  const senha = senhaInput?.value.trim();
+  
   if (!email || !senha) {
     alert('Preencha todos os campos!');
     return;
   }
-
+  
   try {
-    // Enviar dados para o backend
-    const resposta = await api.post('/usuarios/login', {
+    botaoLogin.disabled = true;
+    botaoLogin.textContent = 'Entrando...';
+    
+    console.log('📡 Enviando requisição de login para: /api/auth/login');
+    
+    //Enviar email e senha para o backend
+    const response = await api.post('/auth/login', {
       email: email,
       senha: senha
     });
-
-    // Se chegou aqui, login foi bem-sucedido
-    console.log('Login sucesso:', resposta);
     
-    // Salvar dados do usuário no localStorage (para usar depois)
-    localStorage.setItem('usuario', JSON.stringify(resposta));
+    console.log('Login bem-sucedido:', response);
     
-    // Redirecionar para página de home
+    //Salvar token JWT
+    localStorage.setItem('authToken', response.token);
+    localStorage.setItem('usuarioAtual', JSON.stringify({
+      id: response.id,
+      nome: response.nome,
+      email: response.email
+    }));
+    localStorage.setItem('usuarioNome', response.nome);
+    localStorage.setItem('usuarioId', response.id);
+    
+    alert('Login realizado com sucesso!');
+    
+    //Redirecionar
     window.location.href = '../home/home.html';
-
+    
   } catch (erro) {
     console.error('Erro no login:', erro);
-    alert('Erro ao fazer login. Verifique suas credenciais.');
+    alert('Erro ao fazer login:\n' + erro.message);
+    botaoLogin.disabled = false;
+    botaoLogin.textContent = 'Login';
   }
 }
 
-// Adicionar event listener ao formulário
-if (loginForm) {
-  loginForm.addEventListener('submit', fazerLogin);
+if (formLogin) {
+  formLogin.addEventListener('submit', fazerLogin);
+  console.log('Event listener adicionado ao formulário');
+} else {
+  console.error('Formulário não encontrado!');
 }

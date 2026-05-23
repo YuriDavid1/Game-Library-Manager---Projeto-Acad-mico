@@ -1,3 +1,9 @@
+// Verificar autenticação ao carregar página
+document.addEventListener('DOMContentLoaded', () => {
+  verificarAutenticacao(); // Redireciona se não tem token
+  carregarJogos();
+});
+
 // Verificar se usuário está logado
 function verificarLogin() {
   const usuario = localStorage.getItem('usuarioAtual');
@@ -25,7 +31,7 @@ async function carregarJogos() {
   }
 }
 
-// Exibir jogos no carrossel
+//Exibir jogos no carrossel
 function exibirCarrossel(jogos) {
   const carrossel = document.getElementById('carrossel');
   
@@ -34,16 +40,16 @@ function exibirCarrossel(jogos) {
     return;
   }
 
-  // Limpar conteúdo anterior
+  //Limpar conteúdo anterior
   carrossel.innerHTML = '';
 
-  // Se não tem jogos
+  //Se não tem jogos
   if (!jogos || jogos.length === 0) {
     carrossel.innerHTML = '<p>Nenhum jogo disponível no momento</p>';
     return;
   }
 
-  // Exibir até 6 primeiros jogos
+  //Exibir até 6 primeiros jogos
   jogos.slice(0, 6).forEach((jogo, index) => {
     const jogoDiv = document.createElement('div');
     jogoDiv.className = `g${index + 1}`;
@@ -61,7 +67,6 @@ function exibirCarrossel(jogos) {
   });
 }
 
-// Configurar botão "Ver Biblioteca"
 function configurarBotaoBiblioteca() {
   const botao = document.querySelector('.banner button');
   if (botao) {
@@ -105,3 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   configurarBotaoBiblioteca();
   atualizarNavbar();
 });
+
+function fazerLogout() {
+  fazerLogout(); // Chamar função do auth.js
+}
