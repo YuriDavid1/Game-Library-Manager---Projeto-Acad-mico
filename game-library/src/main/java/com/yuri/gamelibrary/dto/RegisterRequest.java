@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegisterRequest {  // ← IMPORTANTE: "public"
+public class RegisterRequest {
     @NotBlank(message = "Nome é obrigatório")
     @Size(min = 3, max = 100)
     private String nome;

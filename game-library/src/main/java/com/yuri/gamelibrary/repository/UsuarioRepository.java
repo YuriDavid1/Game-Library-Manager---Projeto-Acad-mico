@@ -14,6 +14,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // Buscar usuário por nome (compatibilidade com código antigo)
     Optional<Usuario> findByNome(String nome);
 
+    // Buscar usuário por nome (case-insensitive) - IMPORTANTE!
+    Optional<Usuario> findByNomeIgnoreCase(String nome);
+
     // Verificar se email já existe
     boolean existsByEmail(String email);
 

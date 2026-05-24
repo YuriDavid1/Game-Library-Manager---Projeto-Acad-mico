@@ -10,16 +10,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
+import java.util.Base64;
 import java.util.Date;
 
 @Service
 @Slf4j
 public class JwtService {
 
-    @Value("${jwt.secret:9fK2mL8xQwR7vBn3ZpA6sDcE1tYuHjK5rTyUiOpLmN8vCxZa")
+    @Value("${jwt.secret}")
     private String jwtSecret;
 
-    @Value("${jwt.expiration:3600000}") // 1 hora
+    @Value("${jwt.expiration:3600000}")
     private long jwtExpiration;
 
     /**
@@ -27,7 +28,7 @@ public class JwtService {
      */
     public String generateToken(Usuario usuario) {
         try {
-            SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
+            SecretKey key = getSigningKey();
 
             return Jwts.builder()
                     .setSubject(String.valueOf(usuario.getId()))
@@ -48,14 +49,16 @@ public class JwtService {
      */
     public Long extractUserId(String token) {
         try {
-            SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
-            Claims claims = Jwts.parserBuilder()
-                    .setSigningKey(key)
+            SecretKey key = getSigningKey();
+
+            Claims claims = Jwts.parser()
+                    .verifyWith(key)
                     .build()
-                    .parseClaimsJws(token)
-                    .getBody();
+                    .parseSignedClaims(token)
+                    .getPayload();
 
             return Long.parseLong(claims.getSubject());
+
         } catch (Exception e) {
             log.error("Erro ao extrair ID do token: {}", e.getMessage());
             throw new RuntimeException("Token inválido");
@@ -67,14 +70,16 @@ public class JwtService {
      */
     public String extractEmail(String token) {
         try {
-            SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
-            Claims claims = Jwts.parserBuilder()
-                    .setSigningKey(key)
+            SecretKey key = getSigningKey();
+
+            Claims claims = Jwts.parser()
+                    .verifyWith(key)
                     .build()
-                    .parseClaimsJws(token)
-                    .getBody();
+                    .parseSignedClaims(token)
+                    .getPayload();
 
             return (String) claims.get("email");
+
         } catch (Exception e) {
             throw new RuntimeException("Token inválido");
         }
@@ -85,15 +90,26 @@ public class JwtService {
      */
     public boolean isTokenValid(String token) {
         try {
-            SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
-            Jwts.parserBuilder()
-                    .setSigningKey(key)
+            SecretKey key = getSigningKey();
+
+            Jwts.parser()
+                    .verifyWith(key)
                     .build()
-                    .parseClaimsJws(token);
+                    .parseSignedClaims(token);
+
             return true;
+
         } catch (Exception e) {
             log.warn("Token inválido: {}", e.getMessage());
             return false;
         }
+    }
+
+    /**
+     Gerar a chave de assinatura
+     */
+    private SecretKey getSigningKey() {
+        byte[] keyBytes = Base64.getDecoder().decode(jwtSecret);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 }

@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -29,9 +30,10 @@ public class Usuario {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore
     @NotBlank(message = "Senha é obrigatória")
-    @Size(min = 4, max = 50, message = "Senha deve ter pelo menos 4 caracteres")
-    @Column(nullable = false)
+    @Size(min = 4, max = 255, message = "Senha deve ter pelo menos 4 caracteres")
+    @Column(nullable = false, length = 255)
     private String senha;
 
     public Usuario(String nome) {
