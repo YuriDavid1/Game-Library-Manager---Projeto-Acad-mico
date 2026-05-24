@@ -20,34 +20,52 @@ async function fazerCadastro(event) {
     return;
   }
 
-  if (senha.length < 6) {
-    alert('Senha deve ter no mínimo 6 caracteres!');
+  if (email.includes('@') === false) {
+    alert('Email inválido!');
+    return;
+  }
+
+  if (senha.length < 4) {
+    alert('Senha deve ter no mínimo 4 caracteres!');
     return;
   }
 
   try {
-    // Enviar para backend
-    const resposta = await api.post('/usuarios', {
+    botaoCadastro.disabled = true;
+    botaoCadastro.textContent = 'Cadastrando...';
+
+    console.log('Enviando cadastro para /auth/register');
+    
+    // Enviar para backend usando endpoint correto
+    const resposta = await api.post('/auth/register', {
       nome: nome,
       email: email,
-      senha: senha
+      senha: senha,
+      senhaConfirmacao: senha
     });
 
     console.log('Cadastro sucesso:', resposta);
     
-    // Mensagem de sucesso
-    alert('Cadastro realizado com sucesso! Faça login.');
+    alert('Cadastro realizado com sucesso! Redirecionando para login...');
+    cadastroForm.reset();
     
-    // Redirecionar para login
-    window.location.href = './login.html';
+    // Redirecionar para login após 1 segundo
+    setTimeout(() => {
+      window.location.href = './login.html';
+    }, 1000);
 
   } catch (erro) {
     console.error('Erro no cadastro:', erro);
-    alert('Erro ao cadastrar. Email pode já estar em uso.');
+    alert('Erro ao cadastrar:\n' + (erro.message || 'Email pode já estar em uso.'));
+    botaoCadastro.disabled = false;
+    botaoCadastro.textContent = 'Cadastrar';
   }
 }
 
 // Adicionar event listener
 if (cadastroForm) {
   cadastroForm.addEventListener('submit', fazerCadastro);
+  console.log('Event listener de cadastro adicionado');
+} else {
+  console.error('Formulário de cadastro não encontrado!');
 }

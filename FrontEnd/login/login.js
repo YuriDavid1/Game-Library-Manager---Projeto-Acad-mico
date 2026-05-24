@@ -1,4 +1,4 @@
-console.log('Login.js (com JWT) carregado');
+console.log('Login.js (com JWT)');
 
 const formLogin = document.querySelector('form');
 const emailInput = document.getElementById('emailLogin');

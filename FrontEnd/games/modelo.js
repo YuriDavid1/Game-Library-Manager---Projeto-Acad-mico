@@ -1,5 +1,3 @@
-console.log('Modelo.js carregado');
-
 // Pegar ID do jogo da URL
 function obterIdDaURL() {
   const params = new URLSearchParams(window.location.search);
@@ -10,8 +8,7 @@ function obterIdDaURL() {
 function verificarLogin() {
   const usuario = localStorage.getItem('usuarioAtual');
   if (!usuario) {
-    alert('Você precisa fazer login!');
-    window.location.href = '../login/login.html';
+    console.log('Usuário não logado');
     return null;
   }
   return JSON.parse(usuario);
@@ -22,32 +19,24 @@ async function carregarDetalheJogo() {
   try {
     const jogoId = obterIdDaURL();
     
-    if (!jogoId) {
-      console.log('Nenhum ID de jogo na URL, exibindo jogo padrão');
-      // Se não tem ID na URL, carrega o primeiro jogo
-      const jogos = await api.listarJogos();
-      if (jogos.length > 0) {
-        exibirDetalhes(jogos[0]);
-      }
-      return;
-    }
-
     console.log('Carregando jogo ID:', jogoId);
+    const jogos = await api.get('/jogos');
     
-    // Buscar jogo específico (se seu backend tiver endpoint para isso)
-    // Por enquanto, carrega todos e procura pelo ID
-    const jogos = await api.listarJogos();
-    const jogo = jogos.find(j => j.id == jogoId);
+    let jogo = null;
+    if (jogoId) {
+      jogo = jogos.find(j => j.id == jogoId);
+    }
+    
+    if (!jogo && jogos.length > 0) {
+      jogo = jogos[0];
+    }
     
     if (jogo) {
       exibirDetalhes(jogo);
-    } else {
-      console.error('Jogo não encontrado');
-      exibirDetalhes(jogos[0] || {});
     }
     
   } catch (erro) {
-    console.error('Erro ao carregar jogo:', erro);
+    console.error('Erro:', erro);
     alert('Erro ao carregar jogo');
   }
 }
@@ -56,10 +45,8 @@ async function carregarDetalheJogo() {
 function exibirDetalhes(jogo) {
   console.log('Exibindo jogo:', jogo);
 
-  // Atualizar título da página
-  document.title = `${jogo.nome || 'Jogo'} - Game Library`;
+  document.title = `${jogo.nome} - Game Library`;
 
-  // Atualizar banner principal
   const faixaTopo = document.querySelector('.faixa-topo');
   if (faixaTopo) {
     faixaTopo.style.backgroundImage = `url('https://via.placeholder.com/1400x400?text=${jogo.nome}')`;
@@ -67,12 +54,12 @@ function exibirDetalhes(jogo) {
 
   const nomeJogo = document.querySelector('.nome-jogo');
   if (nomeJogo) {
-    nomeJogo.textContent = jogo.nome || 'Sem nome';
+    nomeJogo.textContent = jogo.nome;
   }
 
   const generoJogo = document.querySelector('.classificacao-jogo');
   if (generoJogo) {
-    generoJogo.textContent = jogo.genero || 'Sem gênero';
+    generoJogo.textContent = jogo.genero;
   }
 
   const insignia = document.querySelector('.insignia-status');
@@ -83,34 +70,24 @@ function exibirDetalhes(jogo) {
     `;
   }
 
-  // Configurar botões
   const btnAluga = document.querySelector('.btn-aluga');
   if (btnAluga) {
-    btnAluga.onclick = () => emprestarJogo(jogo.id, jogo.nome);
+    btnAluga.onclick = () => {
+      const usuario = verificarLogin();
+      if (!usuario) {
+        alert('Você precisa fazer login para emprestar jogos!');
+        window.location.href = '../login/login.html';
+        return;
+      }
+      emprestarJogo(jogo.id, jogo.nome);
+    };
     btnAluga.disabled = !jogo.disponivel;
     btnAluga.textContent = jogo.disponivel ? 'Alugar Agora' : 'Indisponível';
   }
 
-  // Atualizar informações do jogo
   const blocos = document.querySelectorAll('.bloco-conteudo');
-  if (blocos.length > 0) {
-    blocos[0].querySelector('p').textContent = jogo.descricao || 
-      `Mergulhe em uma aventura épica com ${jogo.nome}. Um jogo ${jogo.genero} que proporcionará horas de diversão e emoção!`;
-  }
-
-  // Atualizar cartão de informações
-  const cartao = document.querySelector('.cartao-informacoes');
-  if (cartao) {
-    const itens = cartao.querySelectorAll('.item-informacao');
-    if (itens.length > 0) {
-      itens[0].querySelector('.conteudo').textContent = jogo.nome || '-';
-    }
-    if (itens.length > 1) {
-      itens[1].querySelector('.conteudo').textContent = jogo.genero || '-';
-    }
-    if (itens.length > 2) {
-      itens[2].querySelector('.conteudo').textContent = jogo.disponivel ? 'Sim' : 'Não';
-    }
+  if (blocos.length > 0 && blocos[0].querySelector('p')) {
+    blocos[0].querySelector('p').textContent = `Um jogo ${jogo.genero} de qualidade`;
   }
 }
 
@@ -121,48 +98,23 @@ async function emprestarJogo(jogoId, jogoNome) {
     if (!usuario) return;
 
     console.log('Criando empréstimo...');
-    const resposta = await api.criarEmprestimo(usuario.id, jogoId);
+    const resposta = await api.post('/emprestimos', {
+      usuarioId: usuario.id,
+      jogoId: jogoId
+    });
     
     console.log('Empréstimo criado:', resposta);
-    alert(`Você alugou ${jogoNome} com sucesso!`);
-    
-    // Voltar para biblioteca
+    alert(`Você alugou ${jogoNome}!`);
     window.location.href = '../biblioteca/biblioteca.html';
     
   } catch (erro) {
-    console.error('Erro ao emprestar:', erro);
-    alert('Erro ao emprestar jogo:\n' + erro.message);
+    console.error('Erro:', erro);
+    alert('Erro ao emprestar:\n' + erro.message);
   }
-}
-
-// Atualizar navbar
-function atualizarNavbar() {
-  const usuario = verificarLogin();
-  const navList = document.querySelector('.nav-list');
-  
-  if (usuario && navList) {
-    const logoutBtn = document.createElement('li');
-    logoutBtn.innerHTML = `
-      <button onclick="fazerLogout()" style="background: none; border: none; cursor: pointer; color: inherit; font-size: 1rem;">
-        Logout (${usuario.nome})
-      </button>
-    `;
-    navList.appendChild(logoutBtn);
-  }
-}
-
-function fazerLogout() {
-  localStorage.removeItem('usuarioAtual');
-  localStorage.removeItem('usuarioNome');
-  localStorage.removeItem('usuarioId');
-  alert('Logout realizado');
-  window.location.href = '../login/login.html';
 }
 
 // Executar quando página carregar
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Página carregada');
-  verificarLogin();
+  console.log('Página Modelo carregada');
   carregarDetalheJogo();
-  atualizarNavbar();
 });
