@@ -23,7 +23,7 @@ public class AuthController {
 
     /**
      * Login com email e senha
-       Retorna JWT token
+     Retorna JWT token
      */
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {

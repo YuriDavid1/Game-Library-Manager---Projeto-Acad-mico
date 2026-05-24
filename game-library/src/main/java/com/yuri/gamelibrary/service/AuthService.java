@@ -18,11 +18,12 @@ public class AuthService {
 
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService; // Classe que vamos criar
+    private final JwtService jwtService;
 
     /**
      * Login com email e senha
      */
+
     public LoginResponse login(LoginRequest request) {
         log.info("Iniciando login para: {}", request.getEmail());
 
@@ -56,12 +57,18 @@ public class AuthService {
     /**
      * Registrar novo usuário
      */
+
     public Usuario register(RegisterRequest request) {
         log.info("Iniciando registro para: {}", request.getEmail());
 
         // Validar se email já existe
         if (usuarioRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("Email já cadastrado");
+        }
+
+        // Validar se senhas são iguais
+        if (!request.senhasIguais()) {
+            throw new RuntimeException("Senhas não correspondem");
         }
 
         // Criar novo usuário
@@ -80,6 +87,7 @@ public class AuthService {
     /**
      * Buscar usuário pelo token JWT
      */
+
     public Usuario getUserFromToken(String token) {
         try {
             // Remover "Bearer " do token se existir
@@ -99,6 +107,7 @@ public class AuthService {
     /**
      * Validar token
      */
+
     public boolean isTokenValid(String token) {
         try {
             if (token.startsWith("Bearer ")) {

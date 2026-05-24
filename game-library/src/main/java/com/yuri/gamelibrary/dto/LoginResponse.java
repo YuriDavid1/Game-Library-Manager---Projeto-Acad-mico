@@ -1,8 +1,5 @@
 package com.yuri.gamelibrary.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class LoginResponse {
+public class LoginResponse {  // ← IMPORTANTE: "public"
     private String token;
     private Long id;
     private String nome;

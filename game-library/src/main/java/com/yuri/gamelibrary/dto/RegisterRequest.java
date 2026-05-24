@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class RegisterRequest {
+public class RegisterRequest {  // ← IMPORTANTE: "public"
     @NotBlank(message = "Nome é obrigatório")
-    @Size(min = 3, max = 30)
+    @Size(min = 3, max = 100)
     private String nome;
 
     @NotBlank(message = "Email é obrigatório")
@@ -20,7 +20,7 @@ class RegisterRequest {
     private String email;
 
     @NotBlank(message = "Senha é obrigatória")
-    @Size(min = 4, max = 30)
+    @Size(min = 4, max = 255)
     private String senha;
 
     @NotBlank(message = "Confirmação de senha é obrigatória")
