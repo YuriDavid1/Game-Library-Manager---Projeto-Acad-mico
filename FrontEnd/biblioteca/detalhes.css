@@ -1,0 +1,282 @@
+/* =========================================
+   DESIGN PREMIUM DA PÁGINA DE DETALHES
+   ========================================= */
+
+/* Aumentar o espaço da hero section */
+.hero-section {
+    padding: 60px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(to right, rgba(15, 20, 35, 0.95) 30%, rgba(15, 20, 35, 0.4) 100%);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Corpo principal da página (embaixo do Hero) */
+.game-details-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+/* Seção de Texto e Galeria */
+.main-column h2 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-column h2::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 25px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.desc-completa {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 50px;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+/* Galeria em Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    border: 2px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Barra Lateral (Características) */
+.info-sidebar {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    height: fit-content;
+}
+
+.info-sidebar h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.feature-list {
+    list-style: none;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-weight: 500;
+}
+
+.feature-list li i {
+    color: var(--primary-color);
+    font-size: 20px;
+    width: 25px;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .game-details-body {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   LIGHTBOX (POPUP DE IMAGENS)
+   ========================================= */
+.lightbox-modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 9999; /* Fica por cima de absolutamente tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 14, 23, 0.90); /* Fundo escuro igual ao do site */
+    backdrop-filter: blur(8px); /* Deixa o fundo embaçado bem premium */
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-conteudo {
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+    border: 2px solid var(--primary-color); /* Bordinha amarela */
+    animation: zoomIn 0.3s ease;
+    object-fit: contain;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.9); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox-fechar:hover {
+    color: var(--primary-color);
+}
+
+/* Setinhas de passar a foto */
+.lightbox-nav {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-nav:hover {
+    background: var(--primary-color);
+    color: #000;
+    transform: scale(1.1);
+}
+
+.lightbox-nav.prev {
+    left: 5%;
+}
+
+.lightbox-nav.next {
+    right: 5%;
+}
+
+/* Container dos botões */
+.detalhes-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.botoes-principais {
+    display: flex;
+    gap: 15px;
+}
+
+.botoes-secundarios {
+    display: flex;
+    gap: 15px;
+}
+
+/* Estilo para os botões secundários */
+.btn-secundario {
+    padding: 12px 20px;
+    background: transparent;
+    border: 1px solid #fcca44;
+    color: #fcca44;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-secundario:hover:not(:disabled) {
+    background: #fcca44;
+    color: #11141d;
+}
+
+.btn-secundario:disabled {
+    border-color: #333;
+    color: #555;
+    background: transparent;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Ajuste na imagem para não ficar gigante */
+.game-cover {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}   
+
+/* Quando o botão de reserva NÃO estiver desativado, ele ganha a cor de destaque */
+#btn-reservar:not(:disabled) {
+    background-color: #fcca44;
+    color: #000;
+    border-color: #fcca44;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.popup-mensagem {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fcca44;
+    color: #11141d;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 10000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}

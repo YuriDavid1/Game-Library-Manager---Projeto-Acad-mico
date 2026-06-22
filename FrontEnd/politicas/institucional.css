@@ -1,0 +1,115 @@
+.topo-pagina {
+    text-align: center;
+    padding: 70px 20px 40px;
+}
+
+.topo-pagina h1 {
+    color: #FDCA44;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.topo-pagina p {
+    color: #bdbdbd;
+    font-size: 20px;
+}
+
+.institucional {
+    max-width: 1300px;
+    margin: 0 auto 80px auto;
+    padding: 0 40px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.info-card {
+    background: linear-gradient(
+        135deg,
+        #1a1e2e 0%,
+        #252a3a 100%
+    );
+
+    padding: 35px;
+    border-radius: 15px;
+
+    border-left: 5px solid #FDCA44;
+
+    transition: all .3s ease;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(252,202,68,.15);
+}
+
+.info-card i {
+    color: #FDCA44;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.info-card h2 {
+    color: white;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.info-card p {
+    color: #bdbdbd;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.aviso-final {
+    grid-column: 1 / -1;
+
+    width: 700px;
+    max-width: 90%;
+
+    margin: 40px auto 0 auto;
+
+    background: linear-gradient(
+        135deg,
+        #1a1e2e 0%,
+        #252a3a 100%
+    );
+
+    border-radius: 15px;
+    padding: 40px;
+
+    text-align: center;
+
+    border-top: 4px solid #FDCA44;
+}
+
+.aviso-final h2 {
+    color: #FDCA44;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.aviso-final p {
+    color: #bdbdbd;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.btn-contato {
+    display: inline-block;
+    background: #5D9853;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-contato:hover {
+    background: #6cab62;
+    transform: translateY(-3px);
+}

@@ -12,15 +12,16 @@ function verificarLogin() {
 async function carregarJogos() {
   try {
     console.log('Carregando jogos...');
-    const jogos = await api.get('/jogos');
+    const jogos = await api.get('/games');
+    console.log(jogos);
+    console.log(jogos[0]);
     console.log('Jogos carregados:', jogos);
-    
-    // Exibir jogos no carrossel
     exibirCarrossel(jogos);
-    
+    exibirPromocoes(jogos);
+    exibirNovidades(jogos);
+
   } catch (erro) {
     console.error('Erro ao carregar jogos:', erro);
-    document.getElementById('carrossel').innerHTML = '<p>Erro ao carregar jogos</p>';
   }
 }
 
@@ -47,9 +48,9 @@ function exibirCarrossel(jogos) {
     const jogoDiv = document.createElement('div');
     jogoDiv.className = `g${index + 1}`;
     jogoDiv.innerHTML = `
-      <a href="./modelo.html?id=${jogo.id}" style="text-decoration: none; color: inherit;">
-        <img src="https://via.placeholder.com/200x250?text=${jogo.nome}" alt="${jogo.nome}">
-        <div class="legenda">
+      <a href="../biblioteca/detalhes.html?jogo=${jogo.slug}" style="text-decoration: none; color: inherit;">
+      <img src="${jogo.imagemCapa}" alt="${jogo.nome}">       
+      <div class="legenda">
           <h3>${jogo.nome}</h3>
           <p>${jogo.genero}</p>
           <p class="disponivel">${jogo.disponivel ? '✓ Disponível' : '✗ Indisponível'}</p>
@@ -60,38 +61,74 @@ function exibirCarrossel(jogos) {
   });
 }
 
+function exibirPromocoes(jogos) {
+    const container =
+        document.getElementById('carrossel-promocoes');
+    if (!container) return;
+    container.innerHTML = '';
+    jogos.slice(0, 8).forEach(jogo => {
+        const precoOriginal =
+            Number(jogo.precoCompra);
+        const precoPromo =
+            Math.floor(precoOriginal * 0.8) +0.90;
+        container.innerHTML += `
+        <div class="promo-card">
+            <div class="promo-badge">
+                -20%
+            </div>
+            <img src="${jogo.imagemCapa}">
+            <div class="promo-info">
+                <h3>${jogo.nome}</h3>
+                <div class="promo-preço">
+                    <span class="preco-original">
+                        R$ ${precoOriginal.toFixed(2)}
+                    </span>
+                    <span class="preco-promo">
+                        R$ ${precoPromo.toFixed(2)}
+                    </span>
+                </div>
+                <button
+                onclick="window.location.href='../biblioteca/detalhes.html?jogo=${jogo.slug}'"
+                class="btn-promo">
+                    Ver Jogo
+                </button>
+            </div>
+        </div>
+        `;
+    });
+}
+
+function exibirNovidades(jogos) {
+    const container =
+        document.getElementById('carrossel-novidades');
+    if (!container) return;
+    container.innerHTML = '';
+    jogos.slice(-8).reverse().forEach(jogo => {
+        container.innerHTML += `
+        <div class="novidade-card">
+            <img src="${jogo.imagemCapa}">
+            <div class="novidade-info">
+                <h3>${jogo.nome}</h3>
+                <p class="descricao-novidade">
+                    ${jogo.genero}
+                </p>
+                <button
+                onclick="window.location.href='../biblioteca/detalhes.html?jogo=${jogo.slug}'"
+                class="btn-novidade">
+                    Conhecer
+                </button>
+            </div>
+        </div>
+        `;
+    });
+}
+
 function configurarBotaoBiblioteca() {
   const botao = document.querySelector('.banner button');
   if (botao) {
     botao.addEventListener('click', () => {
       window.location.href = '../biblioteca/biblioteca.html';
     });
-  }
-}
-
-// Atualizar navbar com informações do usuário (se logado)
-function atualizarNavbar() {
-  const usuario = verificarLogin();
-  const navList = document.querySelector('.nav-list');
-  
-  if (usuario && navList) {
-    // Usuário logado - mostrar nome e logout
-    const logoutBtn = document.createElement('li');
-    logoutBtn.innerHTML = `
-      <button onclick="fazerLogout()" style="background: none; border: none; cursor: pointer; color: inherit; font-size: 1rem;">
-        ${usuario.nome} | Logout
-      </button>
-    `;
-    navList.appendChild(logoutBtn);
-  } else {
-    // Usuário não logado - mostrar botão de login
-    const loginBtn = document.createElement('li');
-    loginBtn.innerHTML = `
-      <a href="../login/login.html" style="text-decoration: none; color: inherit;">
-        Login / Cadastro
-      </a>
-    `;
-    navList.appendChild(loginBtn);
   }
 }
 

@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/games")
+@CrossOrigin(origins = "*") // IMPORTANTE: Libera o Live Server do frontend para acessar sua API!
 public class JogoController {
 
     private final JogoService jogoService;
@@ -31,6 +32,12 @@ public class JogoController {
     @GetMapping("/buscar/{nome}")
     public Jogo buscarJogo(@PathVariable String nome) {
         return jogoService.buscarJogo(nome);
+    }
+
+    // NOVA ROTA: Rota específica para a página de detalhes do front-end
+    @GetMapping("/detalhes/{slug}")
+    public Jogo buscarDetalhes(@PathVariable String slug) {
+        return jogoService.buscarPorSlug(slug);
     }
 
     @DeleteMapping("/by-name/{nome}")

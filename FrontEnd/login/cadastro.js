@@ -1,88 +1,112 @@
 // Função para fazer cadastro
 async function fazerCadastro(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  // Selecionar elementos AQUI, não no topo do arquivo
-  const nomeInput = document.querySelector('#nomeCad');
-  const emailInput = document.querySelector('#emailCad');
-  const senhaInput = document.querySelector('#senhaCad');
-  const botaoCadastro = document.querySelector('#cadButton');
-  const cadastroForm = document.querySelector('form');
-
-  console.log('Elementos encontrados:', { nomeInput, emailInput, senhaInput, botaoCadastro });
-
-  // Pegar valores
-  const nome = nomeInput.value.trim();
-  const email = emailInput.value.trim();
-  const senha = senhaInput.value.trim();
-
-  console.log('Valores:', { nome, email });
-
-  // Validar
-  if (!nome || !email || !senha) {
-    alert('Preencha todos os campos!');
-    return;
-  }
-
-  if (email.includes('@') === false) {
-    alert('Email inválido!');
-    return;
-  }
-
-  if (senha.length < 4) {
-    alert('Senha deve ter no mínimo 4 caracteres!');
-    return;
-  }
-
-  try {
-    botaoCadastro.disabled = true;
-    botaoCadastro.textContent = 'Cadastrando...';
-
-    console.log('Enviando cadastro para /auth/register');
+    const nomeInput = document.querySelector('#nomeCad');
+    const emailInput = document.querySelector('#emailCad');
+    const senhaInput = document.querySelector('#senhaCad');
+    const botaoCadastro = document.querySelector('#cadButton');
+    const cadastroForm = document.querySelector('form');
     
-    // Enviar para backend usando endpoint correto
-    const resposta = await api.post('/auth/register', {
-      nome: nome,
-      email: email,
-      senha: senha,
-      senhaConfirmacao: senha
-    });
+    // Pegando os elementos dos pop-ups (Sucesso e Erro)
+    const popupSucesso = document.getElementById('popupCadastro');
+    const popupErro = document.getElementById('popupErro');
+    const mensagemErro = document.getElementById('mensagemErro');
 
-    console.log('Cadastro sucesso:', resposta);
-    
-    alert('Cadastro realizado com sucesso! Redirecionando para login...');
-    cadastroForm.reset();
-    
-    // Redirecionar para login após 2 segundos
-    setTimeout(() => {
-      window.location.href = './login.html';
-    }, 2000);
+    const nome = nomeInput.value.trim();
+    const email = emailInput.value.trim();
+    const senha = senhaInput.value.trim();
 
-  } catch (erro) {
-    console.error('Erro no cadastro:', erro);
-    alert('Erro ao cadastrar:\n' + (erro.message || 'Email pode já estar em uso.'));
-    botaoCadastro.disabled = false;
-    botaoCadastro.textContent = 'Cadastrar';
-  }
+    // Validações básicas antes de enviar
+    if (!nome || !email || !senha) {
+        mensagemErro.textContent = 'Preencha todos os campos!';
+        popupErro.classList.remove('esconder');
+        return;
+    }
+
+    if (email.includes('@') === false) {
+        mensagemErro.textContent = 'Digite um e-mail válido!';
+        popupErro.classList.remove('esconder');
+        return;
+    }
+
+    if (senha.length < 4) {
+        mensagemErro.textContent = 'A senha deve ter no mínimo 4 caracteres!';
+        popupErro.classList.remove('esconder');
+        return;
+    }
+
+    try {
+        botaoCadastro.disabled = true;
+        botaoCadastro.textContent = 'Cadastrando...';
+
+        // Enviar para backend usando endpoint correto
+        const resposta = await api.post('/auth/register', {
+            nome: nome,
+            email: email,
+            senha: senha,
+            senhaConfirmacao: senha
+        });
+
+        // Limpa o formulário e mostra pop-up de SUCESSO
+        cadastroForm.reset();
+        popupSucesso.classList.remove('esconder');
+        botaoCadastro.textContent = 'Cadastrar';
+
+    } catch (erro) {
+        console.error('Erro no cadastro:', erro);
+        
+        let textoErro = erro.message || 'Email pode já estar em uso.';
+        
+        //TRATAMENTO PARA LIMPAR A MENSAGEM DA API
+        try {
+            // Se a mensagem contiver um JSON (uma chave '{'), vamos tentar extrair
+            if (textoErro.includes('{')) {
+                // Pega tudo a partir da primeira chave '{'
+                const jsonString = textoErro.substring(textoErro.indexOf('{'));
+                const erroObj = JSON.parse(jsonString); // Converte de texto para objeto
+                
+                // Se o backend mandou um atributo "message", a gente usa só ele
+                if (erroObj.message) {
+                    textoErro = erroObj.message; 
+                }
+            }
+        } catch (e) {
+            // Se falhar o tratamento, ignora e segue com a mensagem original
+            console.warn('Não foi possível fazer o parse do erro:', e);
+        }
+
+        // Coloca o texto limpo dentro do pop-up e mostra ele
+        mensagemErro.textContent = textoErro;
+        popupErro.classList.remove('esconder');
+        
+        botaoCadastro.disabled = false;
+        botaoCadastro.textContent = 'Cadastrar';
+    }
 }
 
-// Adicionar event listener quando DOM está pronto
+// Event Listeners (Carregamento da página e cliques)
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM carregado, adicionando event listeners...');
-  
-  const cadastroForm = document.querySelector('form');
-  const botaoCadastro = document.querySelector('#cadButton');
-  
-  if (cadastroForm) {
-    cadastroForm.addEventListener('submit', fazerCadastro);
-    console.log('Event listener adicionado ao formulário');
-  } else {
-    console.error('Formulário de cadastro não encontrado!');
-  }
-  
-  if (botaoCadastro) {
-    console.log('Botão de cadastro encontrado');
-  } else {
-    console.error('Botão #cadButton não encontrado!');
-  }
+    const cadastroForm = document.querySelector('form');
+    const btnIrParaLogin = document.getElementById('btnIrParaLogin');
+    const btnFecharErro = document.getElementById('btnFecharErro');
+    const popupErro = document.getElementById('popupErro');
+    
+    if (cadastroForm) {
+        cadastroForm.addEventListener('submit', fazerCadastro);
+    }
+    
+    // Botão do pop-up de sucesso -> Vai pro login
+    if (btnIrParaLogin) {
+        btnIrParaLogin.addEventListener('click', () => {
+            window.location.href = './login.html'; 
+        });
+    }
+
+    // Botão do pop-up de erro -> Só fecha o modal para o usuário tentar de novo
+    if (btnFecharErro) {
+        btnFecharErro.addEventListener('click', () => {
+            popupErro.classList.add('esconder');
+        });
+    }
 });

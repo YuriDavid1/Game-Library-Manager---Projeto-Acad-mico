@@ -3,114 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     <title>Login</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="../home/home.css">
+    
+    <link rel="stylesheet" href="../Componentes/componentes.css">
     <link rel="stylesheet" href="https://use.typekit.net/rev1kpi.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo-container">
-        <img src="../images/logo.png" alt="logo" width="200" height="100">
-        <a class="logo" href="../home/home.html">Game Library</a>
-        </div>
-        
-        <ul class="nav-list">
-            <li><a href="../home/home.html">Inicio</a></li>
-            <li><a href="../biblioteca/biblioteca.html">Biblioteca</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </nav>
-    </header>
+    <div id="header-container"></div>
+    
     <div class="bg">
-    <main class="container">
-    <form>
-        <div class="text-logo">
-        <img src="../images/logo.png" alt="logo" width="150" height="80">
-        <h1>Game Library</h1>
-        </div>
-        <br>
-        <h2>Bem vindo de volta!</h2>
+        <main class="container">
+            <form>
+                <div class="text-logo">
+                    <img src="../images/logo.png" alt="logo" width="150" height="80">
+                    <h1>Game Library</h1>
+                </div>
+                <br>
+                <h2>Bem vindo de volta!</h2>
 
-        <div class="input-box">
-            <input id="emailLogin" placeholder ="Usuário/Email" type="email">
-            <i class="bx bxs-user"></i>
-        </div>
+                <div class="input-box">
+                    <input id="emailLogin" placeholder="Usuário/Email" type="email">
+                    <i class="bx bxs-user"></i>
+                </div>
 
-        <div class="input-box">
-            <input id="senhaLogin" placeholder = "Senha" type="password">
-            <i class="bx bxs-lock-alt"></i>
-        </div>
+                <div class="input-box">
+                    <input id="senhaLogin" placeholder="Senha" type="password">
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
 
-        <div class="senha">
-            <a href="#">Esqueci minha senha</a>
-        </div>
+                <div class="senha">
+                    <a href="./recuperar-senha.html">Esqueci minha senha</a>
+                </div>
 
-        <button id="logButton" class="logButton" type="submit">
-            Login
-        </button>
+                <button id="logButton" class="logButton" type="submit">
+                    Login
+                </button>
 
-        <div class="registro">
-            <p>Não possui uma conta? <a href="cadastro.html"> Cadastre-se!</a></p>
-        </div>
-    </form>
-    </main>
-    </div>
+                <div class="registro">
+                    <p>Não possui uma conta? <a href="cadastro.html"> Cadastre-se!</a></p>
+                </div>
+            </form>
 
-        <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Sobre Nós</h4>
-                <p>Game Library é a maior plataforma de aluguel de games do Brasil. Temos os melhores títulos para você.</p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Links Rápidos</h4>
-                <ul>
-                    <li><a href="/">Início</a></li>
-                    <li><a href="/">Biblioteca</a></li>
-                    <li><a href="/">Contato</a></li>
-                    <li><a href="/">FAQ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Políticas</h4>
-                <ul>
-                    <li><a href="/">Termos de Uso</a></li>
-                    <li><a href="/">Política de Privacidade</a></li>
-                    <li><a href="/">Cookies</a></li>
-                    <li><a href="/">Devoluções</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Redes Sociais</h4>
-                <div class="social-links">
-                    <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+            <div id="popupLogin" class="popup-overlay esconder">
+                <div class="popup-conteudo">
+                    <i class="fa-solid fa-circle-check popup-icone"></i>
+                    <h3>Login Bem-sucedido!</h3>
+                    <p>Redirecionando para a página inicial...</p>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Game Library. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+            <div id="popupErro" class="popup-overlay esconder">
+                <div class="popup-conteudo">
+                    <i class="fa-solid fa-circle-xmark popup-icone erro"></i>
+                    <h3>Ops! Falha no Login.</h3>
+                    <p id="mensagemErro">Usuário ou senha incorretos.</p>
+                    <button id="btnFecharErro" type="button" class="btn-erro">Tentar Novamente</button>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="../Componentes/global.js"></script>
+    <script src="../Componentes/componentes.js"></script>
     <script src="../auth.js"></script>
+    
     <script src="../js/api-config.js"></script>
     <script src="./login.js"></script>
 </body>

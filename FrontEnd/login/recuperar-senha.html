@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Game Library</title>
+    
+    <link rel="stylesheet" href="./recuperar-senha.css">
+
+    <link rel="stylesheet" href="https://use.typekit.net/rev1kpi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Componentes/componentes.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="container-recuperar">
+        <div class="recuperar-box">
+            <h2>Recuperar Senha</h2>
+            <p>Digite seu e-mail abaixo. Enviaremos um link para você redefinir sua senha.</p>
+            
+            <form id="formRecuperar">
+                <div class="form-grupo">
+                    <label for="emailRecuperar">E-mail</label>
+                    <input type="email" id="emailRecuperar" placeholder="seu@email.com" required>
+                </div>
+                
+                <button type="submit" class="btn-recuperar">Enviar E-mail</button>
+            </form>
+            
+            <a href="../login/login.html" class="link-voltar">Voltar para o Login</a>
+        </div>
+
+        <div id="popupRecuperacao" class="popup-overlay esconder">
+            <div class="popup-conteudo">
+                <i class="fa-solid fa-circle-check popup-icone"></i>
+                <h3>E-mail Enviado!</h3>
+                <p id="popupMensagem">Instruções enviadas com sucesso.</p>
+                <button id="btnFecharPopup" class="btn-recuperar">Entendi</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="./recuperar-senha.js"></script>
+
+    <div id="footer-container"></div>
+    <script src="../Componentes/global.js"></script>
+    <script src="../Componentes/componentes.js"></script>
+    <script src="../auth.js"></script>
+</body>
+</html>

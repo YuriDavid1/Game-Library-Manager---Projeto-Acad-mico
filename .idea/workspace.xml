@@ -5,7 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ad81716-e926-43f2-83a4-735c90628a0e" name="Changes" comment="feat: mudanças back-end semanal, correções, classes e +">
+      <change afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/dto/AlterarSenhaRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game-library/src/main/resources/import.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Componentes/button.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Componentes/cardJogo.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Componentes/carrosselJogos.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/bibliotecaComponente.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/contexts/authContext.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/games/modelo.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/games/modelo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/games/modelo.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/games/modelo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/home/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/home/homeComponente.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/hooks/UseAuth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/login/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/login/cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/cadastro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/login/cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/cadastro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/login/loginForm.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/JogoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/JogoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/entity/Jogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/entity/Jogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/repository/JogoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/repository/JogoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/JogoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/JogoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-library/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +56,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/YuriDavid1/Game-Library-Manager---Projeto-Acad-mico&quot;,
+    &quot;url&quot;: &quot;https://github.com/YuriDavid1/Game-Library-Manager---Projeto-Acad-mico.git&quot;,
     &quot;accountId&quot;: &quot;fe8aa831-4a33-4926-8e43-d541abef37a1&quot;
   }
 }</component>

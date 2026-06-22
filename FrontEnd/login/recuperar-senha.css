@@ -1,0 +1,97 @@
+/* Centraliza a caixa no meio da tela, descontando o tamanho do header/footer */
+.container-recuperar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; 
+    padding: 20px;
+}
+
+/* Estilo da caixa principal */
+.recuperar-box {
+    background: #12151f;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border-top: 4px solid #fcca44; /* Detalhe amarelo no topo */
+}
+
+.recuperar-box h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.recuperar-box p {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Inputs */
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.form-grupo label {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.form-grupo input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #2a2a4a;
+    background: #1a1e2e;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-grupo input:focus {
+    border-color: #fcca44;
+}
+
+/* Botão de envio */
+.btn-recuperar {
+    width: 100%;
+    padding: 12px;
+    background: #fcca44;
+    color: #11141D;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-recuperar:hover {
+    background: #e5b63c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(252, 202, 68, 0.3);
+}
+
+/* Link de voltar */
+.link-voltar {
+    color: #aaa;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.link-voltar:hover {
+    color: #fcca44;
+}
+

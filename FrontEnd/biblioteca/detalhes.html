@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Jogo - Game Library</title>
+    <link rel="stylesheet" href="../Componentes/componentes.css">
+    <link rel="stylesheet" href="biblioteca.css">
+    <link rel="stylesheet" href="detalhes.css"> 
+    <link rel="stylesheet" href="https://use.typekit.net/rev1kpi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS FIXO PARA ALINHAMENTO DOS BOTÕES */
+        .detalhes-acoes {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .botoes-principais, .botoes-secundarios {
+            display: flex;
+            gap: 15px;
+        }
+        .btn-secundario {
+            padding: 12px 20px;
+            background: transparent;
+            border: 1px solid #fcca44;
+            color: #fcca44;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-secundario:hover:not(:disabled) {
+            background: #fcca44;
+            color: #11141d;
+        }
+        .btn-secundario:disabled {
+            border-color: #333;
+            color: #555;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .game-cover {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    <main class="container-principal" style="margin-top: 40px; margin-bottom: 80px;">
+        <a href="biblioteca.html" style="color: var(--primary-color); text-decoration: none; font-weight: bold; margin-bottom: 20px; display: inline-block;">
+            <i class="fas fa-arrow-left"></i> Voltar para Biblioteca
+        </a>
+
+        <section class="hero-section">
+            <div id="detalhe-fundo" class="hero-background" style="opacity: 0.25; background-position: 10% bottom;"></div>
+            
+            <div class="hero-content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="hero-esq">
+                    <div class="game-badge">
+                        <span id="detalhe-status" class="status-badge disponivel">✓ Disponível</span>
+                    </div>
+                    
+                    <h1 id="detalhe-titulo" class="game-titulo" style="font-size: 54px; margin: 10px 0;">Carregando...</h1>
+                    
+                    <div class="game-meta">
+                        <span id="detalhe-genero" class="genero">Buscando dados...</span>
+                    </div>
+
+                    <div class="detalhes-acoes">
+                        <div class="botoes-principais">
+                            <button class="btn-alugar" id="btn-alugar-jogo">
+                                <span id="detalhe-preco-aluguel">Alugar</span>
+                            </button>
+                            <button class="btn-comprar" id="btn-comprar-jogo">
+                                <span id="detalhe-preco-compra">Comprar</span>
+                            </button>
+                        </div>
+                        
+                        <div class="botoes-secundarios">
+                            <button id="btn-favoritar" class="btn-secundario">
+                                <i class="fa-regular fa-heart"></i> Favoritar
+                            </button>
+                            <button id="btn-reservar" class="btn-secundario" disabled>
+                                <i class="fa-regular fa-calendar"></i> Reservar Jogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <img id="detalhe-capa" src="https://via.placeholder.com/600x900" alt="Capa" class="game-cover">
+                </div>
+            </div>
+        </section>
+
+        <div class="game-details-body">
+            <div class="main-column">
+                <h2>Visão Geral do Jogo</h2>
+                <div class="desc-completa">
+                    <p id="detalhe-descricao">Aguarde...</p>
+                </div>
+                <h2>Galeria</h2>
+                <div class="gallery-grid" id="galeria-jogo"></div>
+            </div>
+            <div class="side-column">
+                <div class="info-sidebar">
+                    <h3>Recursos do Jogo</h3>
+                    <ul class="feature-list" id="lista-recursos"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+        <div id="status-popup" class="popup-mensagem">
+        <span id="popup-texto"></span>
+        </div>
+
+        <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-fechar">&times;</span>
+        <button class="lightbox-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox-conteudo" id="lightbox-img">
+        <button class="lightbox-nav next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    
+    <div id="footer-container"></div>
+    <script src="../js/api-config.js"></script>
+    <script src="../Componentes/global.js"></script>
+    <script src="../Componentes/componentes.js"></script>
+    <script src="./detalhes.js"></script>
+</body>
+</html>

@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+import com.yuri.gamelibrary.dto.AlterarSenhaRequest;
 
 @Service
 @AllArgsConstructor
@@ -117,5 +118,40 @@ public class AuthService {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void alterarSenha(
+            String token,
+            AlterarSenhaRequest request) {
+
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+
+        Long usuarioId = jwtService.extractUserId(token);
+
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        if (!passwordEncoder.matches(
+                request.getSenhaAtual(),
+                usuario.getSenha())) {
+
+            throw new RuntimeException("Senha atual incorreta");
+        }
+
+        if (!request.getNovaSenha()
+                .equals(request.getConfirmarSenha())) {
+
+            throw new RuntimeException("As novas senhas não coincidem");
+        }
+
+        usuario.setSenha(
+                passwordEncoder.encode(
+                        request.getNovaSenha()
+                )
+        );
+
+        usuarioRepository.save(usuario);
     }
 }

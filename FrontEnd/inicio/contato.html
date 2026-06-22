@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+
+    <link rel="stylesheet" href="../Componentes/componentes.css">
+    <link rel="stylesheet" href="contato.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rev1kpi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main class="contato-container">
+
+    <h1>Entre em Contato</h1>
+    <p class="subtitulo">
+        Ficou com alguma dúvida? Nossa equipe está pronta para ajudar.
+    </p>
+
+    <div class="contato-grid">
+
+        <div class="info-card">
+            <h2>Informações</h2>
+            <p><i class="fas fa-envelope"></i> suporte@gamelibrary.com</p>
+            <p><i class="fas fa-phone"></i> (47) 99999-9999</p>
+            <p><i class="fas fa-location-dot"></i> Joinville - SC</p>
+            <p><i class="fas fa-clock"></i> Seg à Sex - 08h às 18h</p>
+        </div>
+
+        <form id="formContato" class="contato-form">
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu email" required>
+            <input type="text" placeholder="Assunto" required>
+            <textarea rows="6" placeholder="Digite sua mensagem" required></textarea>
+
+            <button id="btnEnviarContato" type="submit">
+                Enviar Mensagem
+            </button>
+        </form>
+
+    </div>
+
+    <div id="popupContato" class="popup-overlay esconder">
+        <div class="popup-conteudo">
+            <i class="fa-solid fa-circle-check popup-icone"></i>
+            <h3>Mensagem Enviada!</h3>
+            <p>Agradecemos o seu contato. Nossa equipe retornará em breve.</p>
+            <button id="btnFecharContato" type="button" class="btn-recuperar">Entendi</button>
+        </div>
+    </div>
+
+</main>
+
+<div id="footer-container"></div>
+<script src="../Componentes/global.js"></script>
+<script src="../Componentes/componentes.js"></script>
+<script src="./contato.js"></script>
+</body>
+</html>

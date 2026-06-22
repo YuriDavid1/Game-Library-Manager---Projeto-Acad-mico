@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Game Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Componentes/componentes.css">
+    <link rel="stylesheet" href="./perfil.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="container-perfil">
+        <div class="perfil-sidebar">
+            <div class="perfil-card">
+                <div class="avatar-container">
+                    <img id="avatarImg" src="https://via.placeholder.com/120" alt="Avatar do usuário" class="avatar">
+                    <button class="btn-upload-avatar" onclick="document.getElementById('uploadAvatar').click()">
+                        <i class="fa-solid fa-camera"></i>
+                    </button>
+                    <input type="file" id="uploadAvatar" accept="image/*" style="display:none;">
+                </div>
+                <h2 id="nomeUsuario">Carregando...</h2>
+                <p id="emailUsuario">carregando...</p>
+            </div>
+
+            <nav class="perfil-menu">
+                <button class="menu-btn active" id="btn-meus-dados" onclick="abrirAbas('meus-dados')"><i class="fa-solid fa-user"></i> Meus Dados</button>
+                <button class="menu-btn" id="btn-historico" onclick="abrirAbas('historico')"><i class="fa-solid fa-clock-rotate-left"></i> Histórico / Compras</button>
+                <button class="menu-btn" id="btn-reservas" onclick="abrirAbas('reservas')"><i class="fa-solid fa-calendar-check"></i> Reservas</button>
+                <button class="menu-btn" id="btn-favoritados" onclick="abrirAbas('favoritados')"><i class="fa-solid fa-heart"></i> Favoritados</button>
+                <button class="menu-btn" id="btn-notificacoes-aba" onclick="abrirAbas('notificacoes-aba')"><i class="fa-solid fa-bell"></i> Notificações</button>
+                <button class="menu-btn" id="btn-seguranca" onclick="abrirAbas('seguranca')"><i class="fa-solid fa-shield-halved"></i> Segurança</button>
+                <button class="menu-btn logout" onclick="fazerLogoutGlobal(event)"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </nav>
+        </div>
+
+        <div class="perfil-content">
+            
+            <div id="meus-dados" class="aba-conteudo ativa">
+                <h3>Informações Pessoais</h3>
+                <form id="formMeusDados">
+                    <div class="form-grupo">
+                        <label for="nomeInput">Nome</label>
+                        <input type="text" id="nomeInput" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="emailInput">Email</label>
+                        <input type="email" id="emailInput" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="telefoneInput">Telefone (Opcional)</label>
+                        <input type="tel" id="telefoneInput" placeholder="(47) 99999-9999">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="dataInput">Data de Nascimento</label>
+                        <input type="date" id="dataInput">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="bioInput">Bio / Sobre</label>
+                        <textarea id="bioInput" placeholder="Fale um pouco sobre você..." rows="4"></textarea>
+                    </div>
+                    <div class="form-acoes">
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                        <button type="button" class="btn btn-secondary" onclick="cancelarEdicao()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="historico" class="aba-conteudo">
+                <h3>Histórico de Empréstimos e Compras</h3>
+                <div id="historicoLista" class="historico-lista">
+                    </div>
+            </div>
+
+            <div id="reservas" class="aba-conteudo">
+                <h3>Minhas Reservas</h3>
+                <div id="reservasLista" class="historico-lista">
+                    </div>
+            </div>
+
+            <div id="favoritados" class="aba-conteudo">
+                <h3>Jogos Favoritados</h3>
+                <div id="favoritadosLista" class="jogos-favoritos-grid">
+                    </div>
+            </div>
+
+            <div id="notificacoes-aba" class="aba-conteudo">
+                <h3>Central de Notificações</h3>
+                <div id="notificacoesLista" class="notificacoes-lista">
+                    </div>
+            </div>
+
+            <div id="seguranca" class="aba-conteudo">
+                <h3>Segurança da Conta</h3>
+                <div class="secao-seguranca">
+                    <h4>Mudar Senha</h4>
+                    <form id="formMudarSenha">
+                        <div class="form-grupo">
+                            <label for="senhaAtual">Senha Atual</label>
+                            <input type="password" id="senhaAtual" placeholder="Sua senha atual" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="senhaNova">Nova Senha</label>
+                            <input type="password" id="senhaNova" placeholder="Nova senha (mín 4 caracteres)" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="senhaConfirma">Confirmar Nova Senha</label>
+                            <input type="password" id="senhaConfirma" placeholder="Confirme a nova senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                    </form>
+                </div>
+                <hr>
+                <div class="secao-seguranca">
+                    <h4>Sessões Ativas</h4>
+                    <p>Você está conectado de forma segura neste dispositivo.</p>
+                    <button class="btn btn-danger" onclick="fazerLogoutTodos()">Logout em Todos os Dispositivos</button>
+                </div>
+                <hr>
+                <div class="secao-seguranca">
+                    <h4>Deletar Conta</h4>
+                    <p style="color: #ff4757; font-weight: bold;">Essa ação é irreversível!</p>
+                    <button class="btn btn-danger" onclick="confirmarDeletaConta()">Deletar Minha Conta Permanente</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <div id="popupPerfil" class="popup-overlay esconder">
+        <div class="popup-conteudo">
+            <i id="popup-icone" class="fa-solid fa-circle-check popup-icone"></i>
+            <h3 id="popup-titulo">Atenção</h3>
+            <p id="popup-mensagem">Você tem certeza?</p>
+            <div id="popup-botoes" style="display: flex; gap: 10px; margin-top: 20px;">
+                <button id="btn-cancelar" class="btn-secondary" style="flex:1;">Cancelar</button>
+                <button id="btn-confirmar" class="btn-danger" style="flex:1;">Sim, Deletar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/api-config.js"></script>
+    <script src="../Componentes/global.js"></script>
+    <script src="./perfil.js"></script>
+</body>
+</html>

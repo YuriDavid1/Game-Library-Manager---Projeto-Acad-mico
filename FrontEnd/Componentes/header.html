@@ -1,0 +1,41 @@
+<header>
+    <nav class="nav">
+        <div class="logo-container">
+            <img src="../images/logo.png" alt="logo">
+            <a class="logo" href="../home/home.html">Game Library</a>
+        </div>
+
+        <ul class="nav-list">
+            <li><a href="../home/home.html">Inicio</a></li>
+            <li><a href="../biblioteca/biblioteca.html">Biblioteca</a></li>
+            
+            <li class="header-icons" id="grupo-icones" style="display: none;">
+                <a href="#" class="icon-link" id="btn-favoritos" title="Meus Favoritos">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                
+                <a href="#" class="icon-link" id="btn-notificacoes" title="Notificações">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge-notificacao" style="display:none;">0</span>
+                </a>
+
+                <a href="../carrinho/carrinho.html" class="icon-link" id="btn-carrinho" title="Meu Carrinho">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="badge-notificacao carrinho-badge" id="carrinho-contador">0</span>
+                </a>
+            </li>
+
+            <li id="usuarioMenu">
+                <a href="../login/login.html">Login</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div id="popupLogout" class="popup-overlay esconder">
+    <div class="popup-conteudo">
+        <i class="fa-solid fa-spinner fa-spin popup-icone" style="color: #fcca44; font-size: 50px; margin-bottom: 20px;"></i>
+        <h3>Desconectando...</h3>
+        <p style="color: #aaa;">Aguarde, redirecionando para o login em segurança.</p>
+    </div>
+</div>

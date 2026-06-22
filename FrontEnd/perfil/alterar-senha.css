@@ -1,0 +1,61 @@
+.container-senha{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.card-senha{
+    width:500px;
+    background:#1a1e2e;
+    padding:40px;
+    border-radius:15px;
+    border-left:5px solid #FDCA44;
+}
+
+.card-senha h1{
+    color:#FDCA44;
+    margin-bottom:25px;
+}
+
+.campo{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+.campo label{
+    color:white;
+    margin-bottom:8px;
+}
+
+.campo input{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    background:#5D9853;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#6cab62;
+}
+
+.sucesso{
+    color:#5D9853;
+    margin-top:15px;
+}
+
+.erro{
+    color:#ff6666;
+    margin-top:15px;
+}

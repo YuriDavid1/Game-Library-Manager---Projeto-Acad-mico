@@ -1,4 +1,5 @@
 package com.yuri.gamelibrary.service;
+
 import org.springframework.stereotype.Service;
 import com.yuri.gamelibrary.entity.Jogo;
 import com.yuri.gamelibrary.repository.JogoRepository;
@@ -39,17 +40,26 @@ public class JogoService {
     }
 
     public Jogo buscarJogo(String nome){
-    Optional <Jogo> jogoEncontrado = repository.findByNomeIgnoreCase(nome);
-    if (jogoEncontrado.isEmpty()){
-        throw new IllegalArgumentException("Jogo não encontrado");
+        Optional <Jogo> jogoEncontrado = repository.findByNomeIgnoreCase(nome);
+        if (jogoEncontrado.isEmpty()){
+            throw new IllegalArgumentException("Jogo não encontrado");
+        }
+        return jogoEncontrado.get();
     }
-    return jogoEncontrado.get();
+
+    // NOVA FUNÇÃO: Busca o jogo pela URL (slug)
+    public Jogo buscarPorSlug(String slug){
+        Optional <Jogo> jogoEncontrado = repository.findBySlug(slug);
+        if (jogoEncontrado.isEmpty()){
+            throw new IllegalArgumentException("Jogo não encontrado na base de dados");
+        }
+        return jogoEncontrado.get();
     }
 
     public List<Jogo> listarTodos(){
         if(repository.findAll().isEmpty()){
-         throw new IllegalArgumentException("Nenhum jogo foi encontrado");
-     }
-       return repository.findAll();
+            throw new IllegalArgumentException("Nenhum jogo foi encontrado");
+        }
+        return repository.findAll();
     }
 }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alterar Senha</title>
+
+<link rel="stylesheet" href="../Componentes/componentes.css">
+<link rel="stylesheet" href="alterar-senha.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+<div class="container-senha">
+
+    <div class="card-senha">
+
+        <h1>Alterar Senha</h1>
+
+        <form id="formSenha">
+
+            <div class="campo">
+                <label>Senha Atual</label>
+                <input
+                    type="password"
+                    id="senhaAtual"
+                    required>
+            </div>
+
+            <div class="campo">
+                <label>Nova Senha</label>
+                <input
+                    type="password"
+                    id="novaSenha"
+                    required>
+            </div>
+
+            <div class="campo">
+                <label>Confirmar Nova Senha</label>
+                <input
+                    type="password"
+                    id="confirmarSenha"
+                    required>
+            </div>
+
+            <button type="submit">
+                Alterar Senha
+            </button>
+
+        </form>
+
+        <div id="mensagem"></div>
+
+    </div>
+
+</div>
+
+<div id="footer-container"></div>
+<script src="../Componentes/componentes.js"></script>
+<script src="../js/api-config.js"></script>
+<script src="alterar-senha.js"></script>
+
+</body>
+</html>

@@ -16,7 +16,7 @@
     position: relative;
     height: 400px;
     background-size: cover;
-    background-position: center;
+    background-position: center 62%;
     display: flex;
     align-items: center;
     justify-content: flex-start;

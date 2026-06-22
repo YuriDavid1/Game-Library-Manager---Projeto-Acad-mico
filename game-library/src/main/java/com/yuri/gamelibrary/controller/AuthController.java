@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.yuri.gamelibrary.dto.AlterarSenhaRequest;
 
 @RestController
 @RequestMapping("/auth")
@@ -25,8 +26,12 @@ public class AuthController {
      * Login com email e senha
      Retorna JWT token
      */
+    /**
+     * Login com email e senha
+     Retorna JWT token
+     */
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) { //Troque <LoginResponse> por <?>
         log.info("Login attempt para email: {}", request.getEmail());
         try {
             LoginResponse response = authService.login(request);
@@ -34,7 +39,9 @@ public class AuthController {
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             log.error("Erro no login: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            // Retorne o body com a ErrorResponse:
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ErrorResponse(e.getMessage()));
         }
     }
 
@@ -76,6 +83,27 @@ public class AuthController {
     public ResponseEntity<?> logout() {
         log.info("Logout realizado");
         return ResponseEntity.ok(new MessageResponse("Logout bem-sucedido"));
+    }
+
+    @PutMapping("/alterar-senha")
+    public ResponseEntity<?> alterarSenha(
+            @RequestHeader("Authorization") String token,
+            @RequestBody AlterarSenhaRequest request) {
+
+        try {
+            authService.alterarSenha(token, request);
+
+            return ResponseEntity.ok(
+                    new MessageResponse("Senha alterada com sucesso")
+            );
+
+        } catch (Exception e) {
+
+            return ResponseEntity.badRequest().body(
+                    new ErrorResponse(e.getMessage())
+            );
+
+        }
     }
 
     @AllArgsConstructor

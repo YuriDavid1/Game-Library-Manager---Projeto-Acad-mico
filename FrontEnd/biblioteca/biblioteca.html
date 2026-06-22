@@ -3,47 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca</title>
-    <link rel="stylesheet" href="../home/home.css">
+    <title>Biblioteca - Game Library</title>
+    <link rel="stylesheet" href="../Componentes/componentes.css">
     <link rel="stylesheet" href="biblioteca.css">
     <link rel="stylesheet" href="https://use.typekit.net/rev1kpi.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img src="../images/logo.png" alt="logo" width="200" height="100">
-                <a class="logo" href="../home/home.html">Game Library</a>
-            </div>
-            
-            <ul class="nav-list">
-                <li><a href="../home/home.html">Inicio</a></li>
-                <li><a href="biblioteca.html">Biblioteca</a></li>
-                <li><a href="../login/login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <div id="header-container"></div>
     <main class="container-principal">
-        <!-- SEÇÃO HERO COM DESTAQUE DO JOGO -->
+        
         <section class="hero-section">
-            <div class="hero-background" style="background-image: url('https://via.placeholder.com/1400x500');"></div>
+            <div class="hero-background" style="background-image: url('https://raw.githubusercontent.com/YuriDavid1/Game-Library-Manager---Assets/refs/heads/master/forza/carrossel4.webp'); opacity: 0.25;"></div>
             
             <div class="hero-content">
                 <div class="hero-esq">
                     <div class="game-badge">
-                        <span class="status-badge disponivel">✓ Disponível</span>
+                        <span class="status-badge disponivel">Disponível</span>
                     </div>
                     
                     <h1 class="game-titulo">
-                        Shadow <span class="highlight">Archer</span>
+                        Forza <span class="highlight">Horizon 6</span>
                     </h1>
                     
                     <div class="game-meta">
-                        <span class="genero">AÇÃO</span>
+                        <span class="genero">CORRIDA</span>
                         <span class="separador">•</span>
-                        <span class="genero">AVENTURA</span>
+                        <span class="genero">MUNDO ABERTO</span>
                     </div>
 
                     <div class="game-aval">
@@ -52,64 +38,105 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <span class="aval-texto">4.8 <span class="aval-cont">(230 avaliações)</span></span>
+                        <span class="aval-texto">4.8 <span class="aval-cont">(156.230 avaliações)</span></span>
                     </div>
 
                     <div class="game-desc">
                         <h3>Sobre o Jogo:</h3>
-                        <p>Torne-se uma lendária arqueira em um mundo dominado por trevas é batalhas épicas! Explore ambientes incríveis, resolva mistérios antigos e derrote inimigos poderosos com sua habilidade e destreza.</p>
+                        <p>A sua Aventura Horizon definitiva está à sua espera! Explore as vibrantes paisagens de mundo aberto com corridas divertidas e sem limites enquanto pilota centenas dos melhores carros do mundo.</p>
                     </div>
 
                     <div class="action-buttons">
-                        <button class="btn-alugar">
+                        <button class="btn-alugar" onclick="window.location.href='detalhes.html?jogo=forza-6'">
                             <span>Alugar por R$ 15,90</span>
                         </button>
-                        <button class="btn-comprar">
-                            <span>Comprar R$ 79,90</span>
+                        <button class="btn-comprar" onclick="window.location.href='detalhes.html?jogo=forza-6'">
+                            <span>Ver Detalhes</span>
                         </button>
                     </div>
                 </div>
 
                 <div class="hero-right">
-                    <img src="https://via.placeholder.com/300x400" alt="Shadow Archer" class="game-cover">
+                    <img src="https://raw.githubusercontent.com/YuriDavid1/Game-Library-Manager---Assets/refs/heads/master/forza/capa.jpg" alt="Forza Horizon 6" class="game-cover" style="cursor: pointer;" onclick="window.location.href='detalhes.html?jogo=forza-6'">
                 </div>
             </div>
         </section>
 
-        <!-- CARROSSEL DE DESTAQUE -->
         <section class="spotlight-section">
             <div class="spotlight-track">
-                <div class="spotlight-item">
-                    <img src="https://via.placeholder.com/600x350" alt="Jogo 1">
+                
+                <div class="spotlight-item" onclick="window.location.href='detalhes.html?jogo=cyberpunk'"> 
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
                     <div class="spotlight-info">
-                        <h3>Horror Night</h3>
-                        <p class="genre-tag">TERROR</p>
-                        <span class="badge indisponivel">🚫 Indisponivel</span>
-                        <button class="btn-detalhes">Ver Detalhes</button>
-                    </div>
-                </div>
-
-                <div class="spotlight-item">
-                    <img src="https://via.placeholder.com/600x350" alt="Jogo 2">
-                    <div class="spotlight-info">
-                        <h3>Galaxy War</h3>
-                        <p class="genero-tag">FICÇÃO CIENTÍFICA</p>
-                        <span class="badge disponivel-badge">✓ Disponível</span>
+                        <h3>Cyberpunk 2077</h3>
+                        <p class="genero-tag">RPG • FICÇÃO CIENTÍFICA</p>
+                        <span class="badge disponivel-badge">Disponível</span>
                         <button class="btn-alugar-pequeno">Alugar por R$ 19,90</button>
                     </div>
                 </div>
 
-                <div class="spotlight-item">
-                    <img src="https://via.placeholder.com/600x350" alt="Jogo 3">
+                <div class="spotlight-item" onclick="window.location.href='detalhes.html?jogo=elden-ring'">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg" alt="Elden Ring">
                     <div class="spotlight-info">
-                        <h3>Mortal Fight</h3>
-                        <p class="genero-tag">LUTA</p>
-                        <span class="badge disponivel-badge">✓ Disponível</span>
-                        <button class="btn-alugar-pequeno">Alugar por R$ 9,90</button>
+                        <h3>Elden Ring</h3>
+                        <p class="genero-tag">RPG • AÇÃO</p>
+                        <span class="badge indisponivel">Indisponivel</span>
+                        <button class="btn-detalhes">Ver Detalhes</button>
                     </div>
                 </div>
+
+                <div class="spotlight-item" onclick="window.location.href='detalhes.html?jogo=rdr2'">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2">
+                    <div class="spotlight-info">
+                        <h3>Red Dead Redemption 2</h3>
+                        <p class="genero-tag">MUNDO ABERTO • AÇÃO</p>
+                        <span class="badge disponivel-badge">Disponível</span>
+                        <button class="btn-alugar-pequeno">Alugar por R$ 24,90</button>
+                    </div>
+                </div>
+
+                <div class="spotlight-item" onclick="window.location.href='detalhes.html?jogo=god-of-war'">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1593500/header.jpg" alt="God of War">
+                    <div class="spotlight-info">
+                        <h3>God of War</h3>
+                        <p class="genero-tag">AÇÃO • AVENTURA</p>
+                        <span class="badge disponivel-badge">Disponível</span>
+                        <button class="btn-alugar-pequeno">Alugar por R$ 18,90</button>
+                    </div>
+                </div>
+
+                <div class="spotlight-item" onclick="window.location.href='detalhes.html?jogo=witcher-3'">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg" alt="The Witcher 3">
+                    <div class="spotlight-info">
+                        <h3>The Witcher 3</h3>
+                        <p class="genero-tag">RPG • FANTASIA</p>
+                        <span class="badge disponivel-badge">Disponível</span>
+                        <button class="btn-alugar-pequeno">Alugar por R$ 15,90</button>
+                    </div>
+                </div>
+
+                <div class="spotlight-item" onclick="window.location.href='detalhes.html?jogo=spider-man'">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817070/header.jpg" alt="Spider-Man Remastered">
+                    <div class="spotlight-info">
+                        <h3>Spider-Man Remastered</h3>
+                        <p class="genero-tag">AÇÃO • SUPER-HERÓI</p>
+                        <span class="badge indisponivel">🚫 Indisponível</span>
+                        <button class="btn-detalhes">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="spotlight-item" onclick="window.location.href='detalhes.html?jogo=hogwarts'">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/990080/header.jpg" alt="Hogwarts Legacy">
+                    <div class="spotlight-info">
+                        <h3>Hogwarts Legacy</h3>
+                        <p class="genero-tag">RPG • MUNDO ABERTO</p>
+                        <span class="badge disponivel-badge">Disponível</span>
+                        <button class="btn-alugar-pequeno">Alugar por R$ 22,90</button>
+                    </div>
+                </div>
+                
             </div>
 
             <button class="carrossel-nav prev">
@@ -120,9 +147,9 @@
             </button>
         </section>
 
-        <!-- SEÇÃO DE JOGOS DISPONÍVEIS -->
         <section class="games-disponiveis">
-            <h2>Jogos Disponíveis</h2>
+            <h2>Acabaram de Chegar</h2>
+            
             <div class="carrossel-dots">
                 <span class="dot ativo"></span>
                 <span class="dot"></span>
@@ -130,22 +157,27 @@
             </div>
 
             <div class="games-grid">
-                <div class="game-card">
-                    <img src="https://via.placeholder.com/250x300" alt="Cyber Hunter">
-                    <h3>Cyber Hunter</h3>
-                </div>
-                <div class="game-card">
-                    <img src="https://via.placeholder.com/250x300" alt="Racing Clash">
-                    <h3>Racing <span>Clash</span></h3>
-                </div>
-                <div class="game-card">
-                    <img src="https://via.placeholder.com/250x300" alt="Epic Fantasy">
-                    <h3>Epic Fantasy</h3>
-                </div>
-                <div class="game-card">
-                    <img src="https://via.placeholder.com/250x300" alt="Football Arena">
-                    <h3>Football <span>Arena</span></h3>
-                </div>
+                
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=witcher-3'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/library_600x900_2x.jpg" alt="The Witcher 3"><h3>The Witcher 3</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=gta-v'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/library_600x900_2x.jpg" alt="GTA V"><h3>Grand Theft Auto V</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=baldurs-gate'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1086940/library_600x900_2x.jpg" alt="Baldur's Gate 3"><h3>Baldur's Gate 3</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=god-of-war'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1593500/library_600x900_2x.jpg" alt="God of War"><h3>God of War</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=re4'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/library_600x900_2x.jpg" alt="Resident Evil 4"><h3>Resident Evil 4</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=hollow-knight'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/367520/library_600x900_2x.jpg" alt="Hollow Knight"><h3>Hollow Knight</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=spider-man'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817070/library_600x900_2x.jpg" alt="Spider-Man Remastered"><h3>Spider-Man</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=horizon-zero-dawn'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1151640/library_600x900_2x.jpg" alt="Horizon Zero Dawn"><h3>Horizon Zero Dawn</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=stardew-valley'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/library_600x900_2x.jpg" alt="Stardew Valley"><h3>Stardew Valley</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=ghost-of-tsushima'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215430/library_600x900_2x.jpg" alt="Ghost of Tsushima"><h3>Ghost of Tsushima</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=hogwarts'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/990080/library_600x900_2x.jpg" alt="Hogwarts Legacy"><h3>Hogwarts Legacy</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=palworld'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/library_600x900_2x.jpg" alt="Palworld"><h3>Palworld</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=doom-eternal'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/782330/library_600x900_2x.jpg" alt="DOOM Eternal"><h3>DOOM Eternal</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=sekiro'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/814380/library_600x900_2x.jpg" alt="Sekiro"><h3>Sekiro</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=hades'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/library_600x900_2x.jpg" alt="Hades"><h3>Hades</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=dead-cells'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/library_600x900_2x.jpg" alt="Dead Cells"><h3>Dead Cells</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=terraria'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/105600/library_600x900_2x.jpg" alt="Terraria"><h3>Terraria</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=garrys-mod'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/library_600x900_2x.jpg" alt="Garry's Mod"><h3>Garry's Mod</h3></div>
+                <div class="game-card" onclick="window.location.href='detalhes.html?jogo=cyberpunk'"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/library_600x900_2x.jpg" alt="Cyberpunk 2077"><h3>Cyberpunk 2077</h3></div>
+
             </div>
 
             <button class="carrossel-nav ant-jogo">
@@ -156,12 +188,11 @@
             </button>
         </section>
 
-        <!-- SIDEBAR - SEU ALUGUEL -->
         <aside class="aluguel-sidebar">
             <div class="aluguel-card">
                 <div class="aluguel-header">
-                    <img src="https://via.placeholder.com/120x150" alt="Shadow Archer">
-                    <h3>Shadow <span>Archer</span></h3>
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/capsule_231x87.jpg" alt="Forza Horizon 6" style="object-fit: cover; width: 80px; height: 80px;">
+                    <h3>Forza <span>Horizon 6</span></h3>
                 </div>
 
                 <div class="aluguel-info">
@@ -176,59 +207,10 @@
         </aside>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Sobre Nós</h4>
-                <p>Game Library é a maior plataforma de aluguel de games do Brasil. Temos os melhores títulos para você.</p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Links Rápidos</h4>
-                <ul>
-                    <li><a href="/">Início</a></li>
-                    <li><a href="/">Biblioteca</a></li>
-                    <li><a href="/">Contato</a></li>
-                    <li><a href="/">FAQ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Políticas</h4>
-                <ul>
-                    <li><a href="/">Termos de Uso</a></li>
-                    <li><a href="/">Política de Privacidade</a></li>
-                    <li><a href="/">Cookies</a></li>
-                    <li><a href="/">Devoluções</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Redes Sociais</h4>
-                <div class="social-links">
-                    <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Game Library. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-    <script src="../auth.js"></script>
+    <div id="footer-container"></div>
+    <script src="../Componentes/global.js"></script>
+    <script src="../Componentes/componentes.js"></script>
     <script src="../js/api-config.js"></script>
     <script src="./biblioteca.js"></script>
 </body>
-
 </html>
