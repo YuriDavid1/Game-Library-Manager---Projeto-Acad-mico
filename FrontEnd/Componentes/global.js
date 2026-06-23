@@ -67,11 +67,18 @@ function atualizarNavbar() {
 
     if (usuario && usuario.nome) {
         // 🔥 USUÁRIO ESTÁ LOGADO
+
+        // Link extra do Painel Admin (somente para administradores)
+        const linkAdmin = (usuario.role === 'ADMIN')
+            ? `<a href="../admin/admin.html" class="link-admin"><i class="fa-solid fa-shield-halved"></i> Painel Admin</a>`
+            : '';
+
         menuUsuario.innerHTML = `
             <div class="user-dropdown">
                 <span class="user-name">${usuario.nome}</span>
                 <div class="dropdown-content">
                     <a href="../perfil/perfil.html">Perfil</a>
+                    ${linkAdmin}
                     <a href="#" onclick="fazerLogoutGlobal(event)">Logout</a>
                 </div>
             </div>
@@ -147,7 +154,7 @@ function fazerLogoutGlobal(event) {
     localStorage.removeItem('usuarioAtual');
     localStorage.removeItem('usuarioNome');
     localStorage.removeItem('usuarioId');
-    
+    localStorage.removeItem('usuarioRole');
     if (popupLogout) {
         popupLogout.classList.remove('esconder');
         

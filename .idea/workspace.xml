@@ -4,42 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ad81716-e926-43f2-83a4-735c90628a0e" name="Changes" comment="feat: mudanças back-end semanal, correções, classes e +">
-      <change afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/dto/AlterarSenhaRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game-library/src/main/resources/import.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Componentes/button.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Componentes/cardJogo.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Componentes/carrosselJogos.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/biblioteca/biblioteca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/biblioteca/bibliotecaComponente.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/contexts/authContext.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/games/modelo.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/games/modelo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/games/modelo.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/games/modelo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/home/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/home/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/home/homeComponente.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/hooks/UseAuth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/login/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/cadastro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/login/cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/cadastro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/login/cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/cadastro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/login/loginForm.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/JogoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/JogoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/entity/Jogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/entity/Jogo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/repository/JogoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/repository/JogoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/JogoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/JogoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/java/com/yuri/gamelibrary/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-library/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/game-library/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="9ad81716-e926-43f2-83a4-735c90628a0e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +56,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yuri1/Game-Library-Manager---Projeto-Acad-mico&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/j/Game-Library-Manager---Projeto-Acad-mico&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -211,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779579345783</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Atualizacao geral">
+      <option name="closed" value="true" />
+      <created>1782157435566</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1782157435566</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,6 +208,7 @@
     <MESSAGE value="rollback" />
     <MESSAGE value="fix: rotas html" />
     <MESSAGE value="feat: mudanças back-end semanal, correções, classes e +" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: mudanças back-end semanal, correções, classes e +" />
+    <MESSAGE value="Atualizacao geral" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizacao geral" />
   </component>
 </project>

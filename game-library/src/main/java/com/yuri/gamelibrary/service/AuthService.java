@@ -51,7 +51,8 @@ public class AuthService {
                 token,
                 usuario.getId(),
                 usuario.getNome(),
-                usuario.getEmail()
+                usuario.getEmail(),
+                usuario.getRole()
         );
     }
 
@@ -77,6 +78,7 @@ public class AuthService {
         usuario.setNome(request.getNome());
         usuario.setEmail(request.getEmail());
         usuario.setSenha(passwordEncoder.encode(request.getSenha()));
+        usuario.setRole("USER");
 
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
@@ -103,6 +105,18 @@ public class AuthService {
         } catch (Exception e) {
             throw new RuntimeException("Token inválido ou expirado");
         }
+    }
+
+    /**
+     * Valida o token e garante que o usuário é ADMIN.
+     * Retorna o próprio admin para uso posterior, ou lança exceção.
+     */
+    public Usuario exigirAdmin(String token) {
+        Usuario usuario = getUserFromToken(token);
+        if (!usuario.isAdmin()) {
+            throw new RuntimeException("Acesso negado: requer privilégios de administrador");
+        }
+        return usuario;
     }
 
     /**

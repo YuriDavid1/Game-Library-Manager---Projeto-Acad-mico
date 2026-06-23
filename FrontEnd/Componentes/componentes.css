@@ -272,6 +272,18 @@ footer {
     color: #fcca44;
 }
 
+/* Link do Painel Admin (destacado em amarelo) */
+.dropdown-content a.link-admin {
+    color: #fcca44;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.dropdown-content a.link-admin:hover {
+    background-color: #fcca44;
+    color: #11141d;
+}
+.dropdown-content a.link-admin i { margin-right: 6px; }
+
 /* A mágica acontece aqui: mostra o dropdown quando o mouse passa na div principal */
 .user-dropdown:hover .dropdown-content {
     display: flex;

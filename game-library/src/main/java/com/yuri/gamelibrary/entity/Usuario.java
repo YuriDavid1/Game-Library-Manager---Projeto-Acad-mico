@@ -36,7 +36,18 @@ public class Usuario {
     @Column(nullable = false, length = 255)
     private String senha;
 
+    // Papel do usuário no sistema: "USER" (padrão) ou "ADMIN".
+    // É enviado no JSON para o front-end decidir se libera o painel administrativo.
+    @Column(nullable = false, length = 20)
+    private String role = "USER";
+
     public Usuario(String nome) {
         this.nome = nome;
+        this.role = "USER";
+    }
+
+    // Helper para checagens de permissão no back-end
+    public boolean isAdmin() {
+        return "ADMIN".equalsIgnoreCase(this.role);
     }
 }

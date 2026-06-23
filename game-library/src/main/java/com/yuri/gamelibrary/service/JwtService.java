@@ -34,6 +34,7 @@ public class JwtService {
                     .setSubject(String.valueOf(usuario.getId()))
                     .claim("email", usuario.getEmail())
                     .claim("nome", usuario.getNome())
+                    .claim("role", usuario.getRole())
                     .setIssuedAt(new Date())
                     .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
                     .signWith(key, SignatureAlgorithm.HS256)
@@ -68,8 +69,7 @@ public class JwtService {
     /**
      * Extrair email do token
      */
-    public String extractEmail(String token) {
-        try {
+    public String extractEmail(String token) {        try {
             SecretKey key = getSigningKey();
 
             Claims claims = Jwts.parser()

@@ -57,10 +57,12 @@ async function fazerLogin(event) {
         localStorage.setItem('usuarioAtual', JSON.stringify({
             id: data.id,
             nome: data.nome,
-            email: data.email
+            email: data.email,
+            role: data.role
         }));
         localStorage.setItem('usuarioNome', data.nome);
         localStorage.setItem('usuarioId', data.id);
+        localStorage.setItem('usuarioRole', data.role || 'USER');
         
         // Mostrar pop-up de sucesso e redirecionar automaticamente após 1.5 segundos
         popupSucesso.classList.remove('esconder');

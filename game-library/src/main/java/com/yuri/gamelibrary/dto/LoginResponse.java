@@ -12,4 +12,5 @@ public class LoginResponse {  // ← IMPORTANTE: "public"
     private Long id;
     private String nome;
     private String email;
+    private String role;
 }

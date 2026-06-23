@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Game Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Componentes/componentes.css">
+    <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <!-- Tela de bloqueio: aparece se o usuário não for admin -->
+    <div id="bloqueio" class="bloqueio-acesso" style="display:none;">
+        <i class="fa-solid fa-lock"></i>
+        <h2>Acesso Restrito</h2>
+        <p>Esta área é exclusiva para administradores.</p>
+        <a href="../home/home.html" class="btn-voltar-home">Voltar para o início</a>
+    </div>
+
+    <main class="container-admin" id="painel" style="display:none;">
+
+        <!-- Cabeçalho do painel -->
+        <div class="admin-header">
+            <div>
+                <h1><i class="fa-solid fa-shield-halved"></i> Painel Administrativo</h1>
+                <p>Bem-vindo, <span id="adminNome">admin</span>. Gerencie usuários, jogos e empréstimos.</p>
+            </div>
+            <button class="btn-atualizar" onclick="carregarTudo()">
+                <i class="fa-solid fa-rotate-right"></i> Atualizar
+            </button>
+        </div>
+
+        <!-- Cards de estatísticas -->
+        <section class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-icon azul"><i class="fa-solid fa-users"></i></div>
+                <div class="stat-info"><span class="stat-num" id="statUsuarios">—</span><span class="stat-label">Usuários</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon roxo"><i class="fa-solid fa-user-shield"></i></div>
+                <div class="stat-info"><span class="stat-num" id="statAdmins">—</span><span class="stat-label">Admins</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon amarelo"><i class="fa-solid fa-gamepad"></i></div>
+                <div class="stat-info"><span class="stat-num" id="statJogos">—</span><span class="stat-label">Jogos</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon verde"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="stat-info"><span class="stat-num" id="statDisponiveis">—</span><span class="stat-label">Disponíveis</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon laranja"><i class="fa-solid fa-handshake"></i></div>
+                <div class="stat-info"><span class="stat-num" id="statEmprestimos">—</span><span class="stat-label">Empréstimos ativos</span></div>
+            </div>
+        </section>
+
+        <!-- Abas -->
+        <nav class="admin-tabs">
+            <button class="tab-btn ativa" data-tab="jogos" onclick="trocarAba('jogos')"><i class="fa-solid fa-gamepad"></i> Jogos</button>
+            <button class="tab-btn" data-tab="usuarios" onclick="trocarAba('usuarios')"><i class="fa-solid fa-users"></i> Usuários</button>
+            <button class="tab-btn" data-tab="emprestimos" onclick="trocarAba('emprestimos')"><i class="fa-solid fa-handshake"></i> Empréstimos</button>
+        </nav>
+
+        <!-- ABA JOGOS -->
+        <section id="aba-jogos" class="aba ativa">
+            <div class="aba-topo">
+                <h2>Gerenciar Jogos</h2>
+                <button class="btn-principal" onclick="abrirModalJogo()">
+                    <i class="fa-solid fa-plus"></i> Adicionar Jogo
+                </button>
+            </div>
+            <div class="tabela-wrapper">
+                <table class="tabela-admin">
+                    <thead>
+                        <tr>
+                            <th>Capa</th><th>Nome</th><th>Gênero</th><th>Aluguel</th><th>Compra</th><th>Status</th><th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyJogos">
+                        <tr><td colspan="7" class="carregando">Carregando jogos...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ABA USUÁRIOS -->
+        <section id="aba-usuarios" class="aba">
+            <div class="aba-topo">
+                <h2>Gerenciar Usuários</h2>
+            </div>
+            <div class="tabela-wrapper">
+                <table class="tabela-admin">
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Nome</th><th>Email</th><th>Permissão</th><th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyUsuarios">
+                        <tr><td colspan="5" class="carregando">Carregando usuários...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ABA EMPRÉSTIMOS -->
+        <section id="aba-emprestimos" class="aba">
+            <div class="aba-topo">
+                <h2>Empréstimos</h2>
+            </div>
+            <div class="tabela-wrapper">
+                <table class="tabela-admin">
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Jogo</th><th>Usuário</th><th>Status</th><th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyEmprestimos">
+                        <tr><td colspan="5" class="carregando">Carregando empréstimos...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== MODAL: ADICIONAR / EDITAR JOGO ===================== -->
+    <div id="modalJogo" class="modal-overlay esconder">
+        <div class="modal-conteudo">
+            <div class="modal-header">
+                <h3 id="modalJogoTitulo">Adicionar Jogo</h3>
+                <button class="modal-fechar" onclick="fecharModalJogo()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="formJogo" class="form-jogo">
+                <input type="hidden" id="jogoId">
+                <div class="grid-2">
+                    <div class="campo">
+                        <label>Nome *</label>
+                        <input type="text" id="jogoNome" placeholder="Ex: God of War" required>
+                    </div>
+                    <div class="campo">
+                        <label>Slug (URL) *</label>
+                        <input type="text" id="jogoSlug" placeholder="ex: god-of-war" required>
+                    </div>
+                </div>
+                <div class="campo">
+                    <label>Gênero</label>
+                    <input type="text" id="jogoGenero" placeholder="Ex: AÇÃO - AVENTURA">
+                </div>
+                <div class="campo">
+                    <label>Descrição</label>
+                    <textarea id="jogoDescricao" rows="3" placeholder="Sinopse do jogo..."></textarea>
+                </div>
+                <div class="grid-2">
+                    <div class="campo">
+                        <label>Preço Aluguel (R$)</label>
+                        <input type="text" id="jogoPrecoAluguel" placeholder="Ex: 15.90">
+                    </div>
+                    <div class="campo">
+                        <label>Preço Compra (R$)</label>
+                        <input type="text" id="jogoPrecoCompra" placeholder="Ex: 159.90">
+                    </div>
+                </div>
+                <div class="campo">
+                    <label>Imagem Capa (URL)</label>
+                    <input type="text" id="jogoImagemCapa" placeholder="https://...">
+                </div>
+                <div class="campo">
+                    <label>Imagem Fundo (URL)</label>
+                    <input type="text" id="jogoImagemFundo" placeholder="https://...">
+                </div>
+                <div class="campo-check">
+                    <input type="checkbox" id="jogoDisponivel" checked>
+                    <label for="jogoDisponivel">Disponível na biblioteca</label>
+                </div>
+                <div class="modal-acoes">
+                    <button type="button" class="btn-secundario" onclick="fecharModalJogo()">Cancelar</button>
+                    <button type="submit" class="btn-principal" id="btnSalvarJogo">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL: CONFIRMAÇÃO ===================== -->
+    <div id="modalConfirma" class="modal-overlay esconder">
+        <div class="modal-conteudo modal-pequeno">
+            <div class="modal-header">
+                <h3 id="confirmaTitulo">Confirmar ação</h3>
+            </div>
+            <p id="confirmaTexto" class="confirma-texto">Tem certeza?</p>
+            <div class="modal-acoes">
+                <button type="button" class="btn-secundario" onclick="fecharConfirma()">Cancelar</button>
+                <button type="button" class="btn-perigo" id="btnConfirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de feedback -->
+    <div id="toast" class="toast esconder"><span id="toastMsg"></span></div>
+
+    <div id="footer-container"></div>
+
+    <script src="../Componentes/global.js"></script>
+    <script src="./admin.js"></script>
+</body>
+</html>

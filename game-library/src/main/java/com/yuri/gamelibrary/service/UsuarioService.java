@@ -50,4 +50,25 @@ public class UsuarioService {
         }
         usuarioRepository.deleteById(id);
     }
+
+    // ===== MÉTODOS ADMINISTRATIVOS =====
+
+    // Lista sem lançar exceção quando vazio (para o painel admin)
+    public List<Usuario> listarTodosAdmin() {
+        return usuarioRepository.findAll();
+    }
+
+    // Promove/rebaixa um usuário (define a role: "USER" ou "ADMIN")
+    public Usuario definirRole(Long id, String role) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+
+        if (role == null) role = "USER";
+        role = role.toUpperCase();
+        if (!role.equals("USER") && !role.equals("ADMIN")) {
+            throw new IllegalArgumentException("Role inválida. Use USER ou ADMIN.");
+        }
+        usuario.setRole(role);
+        return usuarioRepository.save(usuario);
+    }
 }
